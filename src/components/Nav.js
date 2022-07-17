@@ -8,7 +8,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 
 const NavBarItems = ({title, classProps}) =>{
   return(
-      <li className={`mx-3 cursor-pointer ${classProps}`}>
+      <li className={`mx-3 cursor-pointer ${classProps} hover:text-blue`}>
           <a href={`/${title}`}>{title}</a>
       </li>
   )
@@ -44,7 +44,6 @@ function Nav() {
               {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us' ].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} classProps= "my-7 text-lg divide-y pt-2" />
               ))}
-
             </ul>
           )}
 

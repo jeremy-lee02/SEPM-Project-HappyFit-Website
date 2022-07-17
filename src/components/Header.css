@@ -1,0 +1,8 @@
+.img_height{
+    height: 500px;
+}
+h1,h2 {
+    font-size: 38px;
+    display: flex;
+    flex-direction: row;
+}

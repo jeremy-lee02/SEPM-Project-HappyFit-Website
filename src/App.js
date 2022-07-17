@@ -23,32 +23,7 @@ function App() {
           <Nav />
 
         </Router>
-      </div>
-      {/* Testing the fixed scroll for nav bar */}
-      <a href='/Home'><img src={require('./images/logo.jpg')}
-        className ='cursor-pointer width' alt='logo' />
-        </a>
-        <a href='/Home'><img src={require('./images/logo.jpg')}
-        className ='cursor-pointer width' alt='logo' />
-        </a>
-        <a href='/Home'><img src={require('./images/logo.jpg')}
-        className ='cursor-pointer width' alt='logo' />
-        </a>
-        <a href='/Home'><img src={require('./images/logo.jpg')}
-        className ='cursor-pointer width' alt='logo' />
-        </a>
-        <a href='/Home'><img src={require('./images/logo.jpg')}
-        className ='cursor-pointer width' alt='logo' />
-        </a>
-        <a href='/Home'><img src={require('./images/logo.jpg')}
-        className ='cursor-pointer width' alt='logo' />
-        </a>
-        <a href='/Home'><img src={require('./images/logo.jpg')}
-        className ='cursor-pointer width' alt='logo' />
-        </a>
-        <a href='/Home'><img src={require('./images/logo.jpg')}
-        className ='cursor-pointer width' alt='logo' />
-        </a>
+      </div>  
     </div>
   );
 }
