@@ -24,6 +24,7 @@ function App() {
 
         </Router>
       </div>
+      {/* Testing the fixed scroll for nav bar */}
       <a href='/Home'><img src={require('./images/logo.jpg')}
         className ='cursor-pointer width' alt='logo' />
         </a>
