@@ -25,7 +25,7 @@ function Nav() {
           </a>
         </div>
         <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial text-base'>
-                  {['Home' , 'Exercises', 'Nutritions','Calculator', 'AboutUs' ].map((item, index)=>(
+                  {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us' ].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}
         </ul>
@@ -39,7 +39,7 @@ function Nav() {
               <li className='text-xl w-full my-2 pt-3'>
                 <AiOutlineClose fontSize={28} className ="text-white cursor-pointer" onClick={()=>setToggle(false)} />
               </li>
-              {['Home' , 'Exercises', 'Nutritions','Calculator', 'AboutUs' ].map((item, index)=>(
+              {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us' ].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} classProps= "my-7 text-lg divide-y pt-2" />
               ))}
 
