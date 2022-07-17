@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import Nav from "./components/Nav";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from "./pages/Home";
+import Excercises from "./pages/Excercises";
+import Calculators from "./pages/Calculators";
+import AboutUs from "./pages/AboutUs";
+import Nutritions from "./pages/Nutritions";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div className='min-h-screen'>
+      <div>
+        <Router>
+          <Routes>             
+            <Route exact path='/' element= {<Home />} />
+            <Route exact path='/Home' element= {<Home />} />
+            <Route exact path='/Exercises' element= {<Excercises />} />
+            <Route exact path='/Nutritions' element= {<Nutritions />} />
+            <Route exact path='/Calculator' element= {<Calculators/>} />
+            <Route exact path='/AboutUs' element= {<AboutUs />} />
+          </Routes>
+          <Nav />
+
+        </Router>
+      </div>
+      <a href='/Home'><img src={require('./images/logo.jpg')}
+        className ='cursor-pointer width' alt='logo' />
         </a>
-      </header>
+        <a href='/Home'><img src={require('./images/logo.jpg')}
+        className ='cursor-pointer width' alt='logo' />
+        </a>
+        <a href='/Home'><img src={require('./images/logo.jpg')}
+        className ='cursor-pointer width' alt='logo' />
+        </a>
+        <a href='/Home'><img src={require('./images/logo.jpg')}
+        className ='cursor-pointer width' alt='logo' />
+        </a>
+        <a href='/Home'><img src={require('./images/logo.jpg')}
+        className ='cursor-pointer width' alt='logo' />
+        </a>
+        <a href='/Home'><img src={require('./images/logo.jpg')}
+        className ='cursor-pointer width' alt='logo' />
+        </a>
+        <a href='/Home'><img src={require('./images/logo.jpg')}
+        className ='cursor-pointer width' alt='logo' />
+        </a>
+        <a href='/Home'><img src={require('./images/logo.jpg')}
+        className ='cursor-pointer width' alt='logo' />
+        </a>
     </div>
   );
 }

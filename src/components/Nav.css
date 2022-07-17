@@ -1,0 +1,32 @@
+.bg{
+    background-color: #2F2E2E;
+    
+}
+.width{
+    width: 160px;
+}
+.navBar{
+    top: 0;
+    bottom:0;
+    position:fixed;
+    overflow-y:hidden;
+    overflow-x:auto;
+}
+.text-color{
+    color: #2F2E2E
+}
+.white-glassmorphism {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.blue-glassmorphism {
+    background: rgb(39, 51, 89, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
