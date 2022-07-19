@@ -13,23 +13,21 @@ function Home() {
       <Header />
       {/* Content */}
       <div>
-        <div className='flex flex-col md:flex-row flex-auto'>
+        <div className='flex flex-col md:flex-row flex-auto pt-5'>
           {/* Left  */}
           <div className='flex md:flex-initial'>
-              <img src={require('../images/pic1.png')} alt='pic 1' className='pl-8 w-full'/>
+              <img src={require('../images/pic1.png')} alt='pic 1' className='pl-11 w-full'/>
           </div>
           {/* Right */}
           <div className='flex w-full md:pl-14 text-left pt-5 items-center justify-center italic flex-col'>
             <p className='pb-3 text-xl'>
-              "Anywhere, Anytime"
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             </p>
-            <button className='bg-blue hover:bg-blue-700 focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-md' onClick={changeRoute}>Start your workout!</button>
+            <button className='bg-blue hover:bg-blue-700 hover:drop-shadow-lg focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-md' onClick={changeRoute}>Start your workout!</button>
           </div>
         </div>
       </div>
     </>
-
   )
 }
-
 export default Home

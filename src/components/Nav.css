@@ -30,3 +30,6 @@
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
+.shadow {
+    text-shadow: 2px 2px 4px #0098DA;
+}
