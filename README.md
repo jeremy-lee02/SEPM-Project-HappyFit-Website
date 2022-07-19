@@ -10,10 +10,6 @@ In the project directory, you can run:
 
 Run npm i to install dependencies, library or framework.
 
-### `npm i react-icons`
-
-Run this to install react icons.
-
 ### `npm start`
 
 Runs the app in the development mode.\
