@@ -8,7 +8,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 
 const NavBarItems = ({title, classProps}) =>{
   return(
-      <li className={`text-white mx-3 cursor-pointer ${classProps} hover:text-blue `}>
+      <li className={`text-white mx-3 cursor-pointer ${classProps} hover:text-blue drop-shadow-lg`}>
           <a href={`/${title}`} className="hover:drop-shadow-lg">{title}</a>
       </li>
   )
