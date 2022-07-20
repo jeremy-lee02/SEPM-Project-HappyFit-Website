@@ -10,7 +10,7 @@ function Home() {
   }
   return (
     <>
-      <Header />
+      <Header content1={'Anywhere, Anytime!'} content2 = {'Since 2022'} classProp ={'sm:text-3xl pb-8 font-light text-white flex md:justify-center drop-shadow-lg'} />
       {/* Content */}
       <div className='bg-black'>
         {/* Content 1 */}
