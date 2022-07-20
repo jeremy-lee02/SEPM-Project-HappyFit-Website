@@ -39,9 +39,7 @@ function Home() {
           <div className='flex md:flex-initial'>
             <img src={require('../images/pic2.png')} alt='pic 1' className='md:pr-14 w-full pl-14'/>
           </div>
-
         </div>
-
       </div>
     </>
   )
