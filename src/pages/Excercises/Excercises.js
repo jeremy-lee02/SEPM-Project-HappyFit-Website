@@ -1,23 +1,26 @@
 import React from 'react'
-import { Img } from './Img.js';
-import './Excercises.css';
+import Dummy_Data from './data.json'
 
-const rows = [];
-for (let i = 1; i <= 300; i++) {
-  let remainder = i % 4;
-  if (remainder === 0) remainder = 4;
-  rows.push(<Img loc={require('../../images/Img' + remainder.toString() + '.png')} />);
-}
-console.log(rows);
 
-function Excercises(){
+function Excercises() {
   return (
-    <>
-    <h2 className="my-28 ">Exercises</h2>
-  
-    {rows}
-    </>
-  );
-};
+    <div>
+    <h1 className="mt-24">Exercises</h1>
+      {Dummy_Data.map((item) => (
+      <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out">
+       <div className="card-top">
+        <div className="relative">
+         <img src={item.img} layout="fill"/>
+         </div>
+         <h2 className="text-2xl mt-3">{item.title}</h2>
+        </div>
+        <div className="card-bottom"> 
+          <h3>Description: {item.description}</h3>
+          <h3>Exercise technique: {item.tips}</h3>
+        </div>
+      </div>
+      ))}
+      </div>
+)}
 
-export default Excercises
+export default Excercises;

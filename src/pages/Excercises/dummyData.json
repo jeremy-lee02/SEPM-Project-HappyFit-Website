@@ -1,9 +1,9 @@
 [
     {"ID":1, "category": ["Legs", "cardio"],
-    "src":"https://www.youtube.com/watch?v=kcMtfvV1BNc",
+    "src":"/src/images/Img1.png",
     "title":"London",
     "description":"Chong tay xuong, chong mong len, gong bung, hit tho deu.",
-    "tips":"cong lung len dit me may"},
+    "tips":"Chổng mông lên địt mẹ mày"},
     {"ID":2, "category": ["Chest"],
     "src":"https://www.youtube.com/watch?v=frioB4NflaI",
     "title":"London",
