@@ -1,7 +1,7 @@
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from "./pages/Home";
-import Excercises from "./pages/Excercises/Excercises";
+import Exercises from "./pages/Exercises/Exercises";
 import Calculators from "./pages/Calculators";
 import AboutUs from "./pages/AboutUs";
 import Nutritions from "./pages/Nutritions";
@@ -15,7 +15,7 @@ function App() {
           <Routes>             
             <Route exact path='/' element= {<Home />} />
             <Route exact path='/Home' element= {<Home />} />
-            <Route exact path='/Exercises' element= {<Excercises />} />
+            <Route exact path='/Exercises' element= {<Exercises />} />
             <Route exact path='/Nutritions' element= {<Nutritions />} />
             <Route exact path='/Calculator' element= {<Calculators/>} />
             <Route exact path='/AboutUs' element= {<AboutUs />} />
