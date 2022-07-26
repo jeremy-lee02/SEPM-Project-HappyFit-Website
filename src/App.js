@@ -22,8 +22,8 @@ function App() {
             <Route exact path='/AboutUs' element= {<AboutUs />} />
           </Routes>
           <Nav />
-          <Footer />
         </Router>
+        <Footer />
       </div>  
     </div>
   );

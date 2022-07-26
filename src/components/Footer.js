@@ -5,7 +5,7 @@ import { FaFacebookSquare, FaInstagramSquare, FaYoutubeSquare, FaTwitterSquare }
 
 function Footer() {
   return (
-    <div className='relative'>
+    <div className='footer_container'>
         <div className='bg w-full flex justify-center justify-between items-center h-20'>
             <div className='flex flex-row justify-between items-center md:pl-28'>
                 <div className='pl-4'>
