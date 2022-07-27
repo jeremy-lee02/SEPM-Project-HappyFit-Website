@@ -17,7 +17,11 @@ module.exports = {
       'gray-light': '#d3dce6',
       'white': '#FFFFFF',
     },
-    extend: {},
+    extend: {
+      zIndex:{
+        '1000': '1000',
+      }
+    },
   },
   plugins: [],
 }
