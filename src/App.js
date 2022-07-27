@@ -5,6 +5,7 @@ import Exercises from "./pages/Exercises/Exercises";
 import Calculators from "./pages/Calculators";
 import AboutUs from "./pages/AboutUs";
 import Nutritions from "./pages/Nutritions";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           </Routes>
           <Nav />
         </Router>
+        <Footer />
       </div>  
     </div>
   );
