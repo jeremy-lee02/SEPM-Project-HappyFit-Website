@@ -20,12 +20,12 @@ function Nav() {
     <div className='relative'>
       {/* Create a navigation bar */}
       <div className='bg w-full flex md:justify-center justify-between items-center p-1 h-24 navBar'>
-        <div className='md:flex-[0.5] flex-initial justify-center items-center'>
-          <a href='/Home'><img src={require('../images/logo.png' )}
-          className ='cursor-pointer width ' alt='logo' />
+        <div className='md:flex flex-initial justify-center items-center'>
+          <a layout="fill"  href='/Home'><img src={require('../images/logo.png' )}
+          className ='cursor-pointer width' alt='logo' />
           </a>
         </div>
-        <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial text-base'>
+        <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial text-base pl-72'>
                   {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us' ].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}

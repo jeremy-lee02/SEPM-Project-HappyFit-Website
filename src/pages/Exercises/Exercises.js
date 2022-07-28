@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Modal from '../../components/Modal'
-import Dummy_Data from './data.json'
+import Dummy_Data from '../data.json'
 
 
 function Exercises() {
