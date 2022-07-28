@@ -41,8 +41,6 @@ function Exercises() {
       <div className='flex justify-center bg-blue'>
         <Modal showModal={showModal} setShowModal = {setShowModal} img = {modalData.img} title = {modalData.title} />
       </div>
-        
-        {/* <h1>{modalData.title}</h1> */}
       </div>
 )}
 
