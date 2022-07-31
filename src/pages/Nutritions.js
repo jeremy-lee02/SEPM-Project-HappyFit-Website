@@ -23,17 +23,12 @@ function Nutritions() {
         <div className="relative">
          <img src={item.img} layout="fill" className='w-full' alt={item.title}/>
          </div>
-         <h2 className="text-2xl mt-3 underline">{item.title}</h2>
-        </div>
-        <div className="card-bottom pt-1"> 
-          <div>
-            <h3 className='font-bold inline-flex'>Description: </h3>
-            <span> {item.description}</span>
-          </div>
-          <div className='pt-1'>
-            <h3 className='font-bold inline-flex'>Exercise technique: </h3>
-            <span> {capitalLetter(item.tips)}</span>
-          </div>
+          <h2 className="text-2xl mt-3 underline">{item.title}</h2>
+          <h3 className='font-bold inline-flex pb-1 pt-1'>Description: </h3>
+          <span> {item.description}</span>
+          <br />
+          <h3 className='font-bold inline-flex pt-1 pb-1'>Exercise technique: </h3>
+          <span> {capitalLetter(item.tips)}</span>
         </div>
       </div>
       ))}

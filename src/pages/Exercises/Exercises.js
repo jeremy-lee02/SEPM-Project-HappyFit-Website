@@ -14,26 +14,21 @@ function Exercises() {
     <h1 className="mt-24 justify-center pt-3">Exercises</h1>
     <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-16 gap-10">
       {Dummy_Data.map((item) => (
-      <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out " key={item.id} onClick ={()=>{
+      <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out text-left" key={item.id} onClick ={()=>{
         setShowModal(prev => !prev)
         setModalData(item);
 
       }}>
-       <div className="card-top">
+       <div className="">
         <div className="relative">
-         <img src={item.img} layout="fill" className='w-full' alt={item.title}/>
+         <img src={item.img} className='w-full object-cover' alt={item.title}/>
          </div>
          <h2 className="text-2xl mt-3 underline">{item.title}</h2>
-        </div>
-        <div className="card-bottom pt-1"> 
-          <div>
-            <h3 className='font-bold inline-flex'>Description: </h3>
+         <h3 className='font-bold inline-flex pb-1 pt-1'>Description: </h3>
             <span> {item.description}</span>
-          </div>
-          <div className='pt-1'>
-            <h3 className='font-bold inline-flex'>Exercise technique: </h3>
+            <br/>
+            <h3 className='font-bold inline-flex pt-1 pb-1'>Exercise technique: </h3>
             <span> {capitalLetter(item.tips)}</span>
-          </div>
         </div>
       </div>
       ))}

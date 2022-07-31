@@ -31,13 +31,12 @@ body{
     width: 50%;
   
 }
-.card-bottom h1 {
-    font-size: 24px;
-    padding-left: 20px;
+.font-big {
+    font-size: 22px;
 }
 .card-top > img{
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
     object-fit: fill;
 
 
