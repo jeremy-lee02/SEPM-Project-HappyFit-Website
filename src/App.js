@@ -1,11 +1,11 @@
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Nav";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from "./pages/Home";
 import Exercises from "./pages/Exercises/Exercises";
 import Calculators from "./pages/Calculators";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Nutritions from "./pages/Nutritions";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {

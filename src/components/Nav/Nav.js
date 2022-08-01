@@ -21,7 +21,7 @@ function Nav() {
       {/* Create a navigation bar */}
       <div className='bg w-full flex md:justify-center justify-between items-center p-1 h-24 navBar'>
         <div className='md:flex flex-initial justify-center items-center'>
-          <a layout="fill"  href='/Home'><img src={require('../images/logo.png' )}
+          <a layout="fill"  href='/Home'><img src={require('../../images/logo.png' )}
           className ='cursor-pointer width' alt='logo' />
           </a>
         </div>
