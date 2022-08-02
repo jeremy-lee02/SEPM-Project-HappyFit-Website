@@ -15,7 +15,7 @@ function Nutritions() {
     fetch('https://random-data-api.com/api/food/random_food')
       .then(res => res.json())
       .then(json => setData(json))
-  },[0])
+  },8)
 
   return (
     <div className="">
