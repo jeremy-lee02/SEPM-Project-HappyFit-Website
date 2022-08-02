@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 
-function Input({type, name, placeholder, value}) {
+function Input({type, name, placeholder}) {
     const [isCheck, setIsCheck] = useState(false)  
     const [inValid, setInValid] = useState('') 
     const isValid = (value) =>{
@@ -35,9 +35,9 @@ function Input({type, name, placeholder, value}) {
     className="block border border-grey-light w-full p-3 rounded mb-4" 
     name={name} 
     placeholder={placeholder}
-    value ={value}
     onChange = {(e)=> {
         isValid(e.target.value)
+        sessionStorage.setItem(`${name}`,e.target.value)
     }}
     />
     {isCheck? <p className='text-sm text-red'>{inValid}</p> : null}
