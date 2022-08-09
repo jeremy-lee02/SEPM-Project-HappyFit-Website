@@ -9,13 +9,8 @@ function Nutritions() {
   }
   const [showModal, setShowModal] = useState(false)
   const [modalData, setModalData] = useState([])
-  const [data, setData] = useState([])
+
   
-  useEffect(()=>{
-    fetch('https://random-data-api.com/api/food/random_food')
-      .then(res => res.json())
-      .then(json => setData(json))
-  },[])
 
   return (
     <div className="">
@@ -28,21 +23,19 @@ function Nutritions() {
       }}>
        <div className="card-top">
         <div className="relative">
-         <img src={''} layout="fill" className='w-full' alt={data.dish}/>
+         <img src={item.img} layout="fill" className='w-full' alt={item.title}/>
          </div>
-          <h2 className="text-2xl mt-3 underline">{data.dish}</h2>
+          <h2 className="text-2xl mt-3 underline">{item.title}</h2>
           <h3 className='font-bold inline-flex pb-1 pt-1'>Description: </h3>
-          <span> {data.description}</span>
+          <span> {item.description}</span>
           <br />
           <h3 className='font-bold inline-flex pt-1 pb-1'>Ingredient: </h3>
-          <span> {data.ingredient}</span>
+          <span> {item.tips}</span>
         </div>
       </div>
       ))}
       </div>
-      <div className='flex justify-center bg-blue'>
-        <Modal showModal={showModal} setShowModal = {setShowModal} img = {modalData.img} title = {data.dish} />
-      </div>
+        <Modal showModal={showModal} setShowModal = {setShowModal} img = {modalData.img} title = {modalData.title} />
       </div>
 )}
 
