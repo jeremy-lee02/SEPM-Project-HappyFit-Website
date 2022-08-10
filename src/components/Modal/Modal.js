@@ -28,7 +28,7 @@ function Modal({showModal, setShowModal, img, title,tech}) {
                 </div>
                 <div className='w-full text-blue pt-8'>
                     <h2>{title}</h2>
-                    <h3 className='font-bold inline-flex'>Exercise Techniques: </h3>
+                    <h3 className='font-bold inline-flex pt-5'>Exercise Techniques: </h3>
                     <span> {tech}</span>
                 </div>
             </div> 

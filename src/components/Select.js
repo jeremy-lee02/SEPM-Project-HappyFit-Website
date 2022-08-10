@@ -5,9 +5,17 @@ function Select() {
     const [selectedGender, setSelectedGender] = useState('');
     const handleChange = event => {
         setSelected(event.target.value);
+        sessionStorage.setItem('intensity', event.target.value)
+        if(event.target.value === ''){
+          sessionStorage.clear()
+        }
       };
       const handleChange1 = event => {
         setSelectedGender(event.target.value);
+        sessionStorage.setItem('gender', event.target.value)
+        if(event.target.value === ''){
+          sessionStorage.clear()
+        }
       };
 
   return (

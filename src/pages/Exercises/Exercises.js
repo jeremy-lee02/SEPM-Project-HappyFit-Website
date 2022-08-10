@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Modal from '../../components/Modal/Modal'
-import Dummy_Data from '../data.json'
+
 
 
 
@@ -10,7 +10,6 @@ function Exercises() {
   }
   const [showModal, setShowModal] = useState(false)
   const [modalData, setModalData] = useState([])
-
   const [data, setData] = useState([])
   useEffect(()=> {
     fetch(`http://localhost:4000/exercises`)
@@ -19,7 +18,6 @@ function Exercises() {
       setData(json)
     })
   }, [])
-
 
 
   return (
@@ -34,7 +32,7 @@ function Exercises() {
       }}>
        <div className="">
         <div className="relative">
-         <iframe src='https://www.youtube.com/embed/DBSWbOkfknE' className='w-full object-cover rounded-lg' ></iframe>
+          {item.videoURL === ''? <img src='https://links.papareact.com/5j2' className='w-full object-cover rounded-lg' alt='' />:<iframe src= {item.videoURL} className='w-full object-cover rounded-lg' title= {item.name}/ >}
          </div>
          <h2 className="text-2xl mt-3 underline">{item.name}</h2>
          <h3 className='font-bold inline-flex pb-1 pt-1'>Description: </h3>
@@ -47,7 +45,7 @@ function Exercises() {
       ))}
       </div>
       <div className=''>
-        <Modal showModal={showModal} setShowModal = {setShowModal} img = {'https://www.youtube.com/embed/IjPLwbryGI4'} title = {modalData.name} tech = {modalData.tip} />
+        <Modal showModal={showModal} setShowModal = {setShowModal} img = {modalData.videoURL === ''? 'https://links.papareact.com/5j2': modalData.videoURL} title = {modalData.name} tech = {modalData.tip} />
       </div>
       </div>
 )}
