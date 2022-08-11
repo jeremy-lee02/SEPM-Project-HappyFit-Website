@@ -14,8 +14,17 @@ const NavBarItems = ({title, classProps}) =>{
   )
 }
 
+const Button = ({title, onClick}) =>{
+  return(
+    <button className={`text-white mx-3 cursor-pointer drop-shadow-lg rounded-lg bg-blue w-20`} onClick= {onClick}>
+      {title}
+    </button>
+  )
+}
+
 function Nav() {
   const [toggle, setToggle] = useState(false);
+  const [isLog,setIslog] = useState(false)
   return (
     <div className='relative'>
       {/* Create a navigation bar */}
@@ -26,9 +35,11 @@ function Nav() {
           </a>
         </div>
         <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial text-base pl-72'>
-                  {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us' ].map((item, index)=>(
+                  {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us'].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}
+                  <Button title={isLog?'Log out':'Register'} onClick = {()=>setIslog(prev =>!prev)}/>
+
         </ul>
         {/* Create responsive nav bar */}
         <div className='flex-relative relative'>
