@@ -2,7 +2,7 @@ import React, {useCallback,useEffect,useRef} from 'react'
 import './Modal.css'
 import { AiOutlineClose } from 'react-icons/ai';
 
-function Modal({showModal, setShowModal, img, title,tech}) {
+function Modal({showModal, setShowModal, img, title,tech, title1}) {
     const modalRef = useRef()
     const closeModal = () => {
             setShowModal(false)
@@ -28,7 +28,7 @@ function Modal({showModal, setShowModal, img, title,tech}) {
                 </div>
                 <div className='w-full text-blue pt-8'>
                     <h2>{title}</h2>
-                    <h3 className='font-bold inline-flex pt-5'>Exercise Techniques: </h3>
+                    <h3 className='font-bold inline-flex pt-5'>{title1} </h3>
                     <span> {tech}</span>
                 </div>
             </div> 

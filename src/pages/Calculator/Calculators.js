@@ -1,38 +1,15 @@
+
 import React, { useState } from 'react'
-import Result from '../../components/Result'
-
-import Select from '../../components/Select'
-
-
-const Input = ({type, name, placeholder, onChange, value}) => {
-  return (
-    <>
-    <input 
-      type={type} 
-      className="block border border-grey-light w-full p-3 rounded mb-4" 
-      name={name} 
-      value = {value}
-      placeholder={placeholder}
-      onChange = {onChange}
-      />
-    </>
-  )
-}
-
-const Button = ({onClick}) =>{
-  return(
-  <button className= {`w-full text-center py-3 rounded bg-blue text-white hover:bg-blue-700 focus:outline-none my-1`}
-  onClick = {onClick}>
-    Calculate
-  </button>
-  )
-}
+import Result from '../../components/Calculator/Result'
+import Select from '../../components/Calculator/Select'
+import Input  from "../../components/Calculator/Input";
+import Button  from "../../components/Calculator/Button";
 
 const MALE_CONSTANT = [13.397,4.799,5.677,88.362]
 const FEMALE_CONSTANT = [9.247,3.098 ,4.330,447.593]
 
 function Calculators() {
-  const [result, setResult] = useState ()
+  const [result, setResult] = useState(0);
   const [heightValue, setHeightValue] = useState('')
   const [weightValue, setWeightValue] = useState('')
   const [ageValue, setAgeValue] = useState('')
@@ -43,6 +20,8 @@ function Calculators() {
   const [isErrorHeight, setIsErrorHeight] = useState(true)
   const [isErrorWeight, setIsErrorWeight] = useState(true)
   const [isErrorAge, setIsErrorAge] =useState(true)
+
+  // Check validation
   const isValidHeight = (value) =>{
     if (value < 100) {
       setErrorHeight('* Height must larger than 100')
@@ -51,7 +30,6 @@ function Calculators() {
       setIsErrorHeight(false)
     }
   }
-
   const isValidWeight = (value) =>{
     if (value < 0){
       setErrorWeight('* Weight must larger than 0')
@@ -68,14 +46,22 @@ function Calculators() {
       setIsErrorAge(false)
     }
   }
+  // Calculate
+  const calculate = () =>{
+    if (sessionStorage.getItem('gender') === 'Male') {
+      setResult(((MALE_CONSTANT[0] * parseFloat(weightValue)) + (MALE_CONSTANT[1] * parseFloat(heightValue)) - (MALE_CONSTANT[2] * parseFloat(ageValue)) + MALE_CONSTANT[3]) * parseFloat(sessionStorage.getItem('intensity')))
+    }else{
+      setResult(((FEMALE_CONSTANT[0] * parseFloat(weightValue)) + (FEMALE_CONSTANT[1] * parseFloat(heightValue)) - (FEMALE_CONSTANT[2] * parseFloat(ageValue)) + FEMALE_CONSTANT[3]) * parseFloat(sessionStorage.getItem('intensity')))
+    }
+
+   }
+//Handle button click if everything is valid
   const isValid = () => {
     if (!isErrorHeight&&!isErrorWeight&!isErrorAge && sessionStorage.length === 2) {
-      setHeightValue('')
-      setAgeValue('')
-      setWeightValue('')
+      calculate()
 
     }else{
-      setError('Invalid')
+      setError('')
     }
   }
 
@@ -104,7 +90,7 @@ function Calculators() {
           {isErrorAge? <p className='text-sm text-red'>{errorAge}</p> :null }
           <Select />
           <Button onClick= {isValid}/>
-          <Result result={'123'} />
+          <Result result={result.toFixed(2)} />
         </div>
       </div>
     </div>

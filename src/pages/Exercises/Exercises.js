@@ -45,7 +45,7 @@ function Exercises() {
       ))}
       </div>
       <div className=''>
-        <Modal showModal={showModal} setShowModal = {setShowModal} img = {modalData.videoURL === ''? 'https://links.papareact.com/5j2': modalData.videoURL} title = {modalData.name} tech = {modalData.tip} />
+        <Modal showModal={showModal} setShowModal = {setShowModal} img = {modalData.videoURL === ''? 'https://links.papareact.com/5j2': modalData.videoURL} title = {modalData.name} tech = {modalData.tip} title1={'Exercise Techniques:'} />
       </div>
       </div>
 )}
