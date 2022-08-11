@@ -12,7 +12,7 @@ function Exercises() {
   const [modalData, setModalData] = useState([])
   const [data, setData] = useState([])
   useEffect(()=> {
-    fetch(`http://localhost:4000/exercises`)
+    fetch(`https://happy-fit-api.herokuapp.com/exercises`)
     .then(res => res.json())
     .then(json => {
       setData(json)
@@ -32,7 +32,10 @@ function Exercises() {
       }}>
        <div className="">
         <div className="relative">
-          {item.videoURL === ''? <img src='https://links.papareact.com/5j2' className='w-full object-cover rounded-lg' alt='' />:<iframe src= {item.videoURL} className='w-full object-cover rounded-lg' title= {item.name}/ >}
+          {item.videoURL === ''? 
+          <img src='https://links.papareact.com/5j2' className='w-full object-cover rounded-lg' alt='' />
+          :<iframe src= {item.videoURL} className='w-full object-cover rounded-lg' title= {item.name}/ >
+            }
          </div>
          <h2 className="text-2xl mt-3 underline">{item.name}</h2>
          <h3 className='font-bold inline-flex pb-1 pt-1'>Description: </h3>

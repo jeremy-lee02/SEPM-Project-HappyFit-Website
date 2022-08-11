@@ -16,7 +16,7 @@ const NavBarItems = ({title, classProps}) =>{
 
 const Button = ({title, onClick}) =>{
   return(
-    <button className={`text-white mx-3 cursor-pointer drop-shadow-lg rounded-lg bg-blue w-20`} onClick= {onClick}>
+    <button className={`text-white mx-3 cursor-pointer drop-shadow-lg rounded-lg`} onClick= {onClick}>
       {title}
     </button>
   )
