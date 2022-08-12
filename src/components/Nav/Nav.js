@@ -1,38 +1,40 @@
 import React from 'react'
 import './Nav.css'
 import { useState } from 'react'
-import {useNavigate } from 'react-router-dom'
+import {useNavigate, Link } from 'react-router-dom'
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
+
 
 
 const NavBarItems = ({title, classProps}) =>{
   
   return(
       <li className={`text-white mx-3 cursor-pointer ${classProps} hover:text-blue drop-shadow-lg`}>
-          <a href={`/${title}`} className="hover:drop-shadow-lg">{title}</a>
+          <Link to={`/${title}`} className="hover:drop-shadow-lg">{title}</Link>
       </li>
   )
 }
-
 
 function Nav() {
   const navigate = useNavigate()
   const [toggle, setToggle] = useState(false);
   const [isLog,setIslog] = useState(false)
+
   return (
     <div className='relative'>
       {/* Create a navigation bar */}
       <div className='bg w-full flex md:justify-center justify-between items-center p-1 h-24 navBar'>
         <div className='md:flex flex-initial justify-center items-center'>
-          <a layout="fill"  href='/Home'><img src={require('../../images/logo.png' )}
+          <Link layout="fill"  to='/Home'><img src={require('../../images/logo.png' )}
           className ='cursor-pointer width' alt='logo' />
-          </a>
+          </Link>
         </div>
         <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial text-base pl-72'>
                   {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us'].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}
+                  
         </ul>
         {/* Create responsive nav bar */}
         <div className='flex-relative relative'>

@@ -10,6 +10,7 @@ function Register() {
   return (
     <div className='mt-28 h-screen'>
       <h1>Register</h1>
+      
       <button onClick={changeRoute} >Already have an acconut?</button>
     </div>
   )
