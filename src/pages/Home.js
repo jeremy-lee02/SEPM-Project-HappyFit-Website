@@ -5,7 +5,7 @@ import Header from '../components/Header/Header'
 function Home() {
   let navigate = useNavigate();
   const changeRoute = () => {
-    let path = `/Exercises`; 
+    let path = `/Login`; 
     navigate(path);
   }
   return (

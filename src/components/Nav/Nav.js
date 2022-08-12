@@ -1,12 +1,13 @@
 import React from 'react'
 import './Nav.css'
 import { useState } from 'react'
-
+import {useNavigate } from 'react-router-dom'
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 
 
 const NavBarItems = ({title, classProps}) =>{
+  
   return(
       <li className={`text-white mx-3 cursor-pointer ${classProps} hover:text-blue drop-shadow-lg`}>
           <a href={`/${title}`} className="hover:drop-shadow-lg">{title}</a>
@@ -14,15 +15,9 @@ const NavBarItems = ({title, classProps}) =>{
   )
 }
 
-const Button = ({title, onClick}) =>{
-  return(
-    <button className={`text-white mx-3 cursor-pointer drop-shadow-lg rounded-lg`} onClick= {onClick}>
-      {title}
-    </button>
-  )
-}
 
 function Nav() {
+  const navigate = useNavigate()
   const [toggle, setToggle] = useState(false);
   const [isLog,setIslog] = useState(false)
   return (
@@ -38,8 +33,6 @@ function Nav() {
                   {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us'].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}
-                  <Button title={isLog?'Log out':'Register'} onClick = {()=>setIslog(prev =>!prev)}/>
-
         </ul>
         {/* Create responsive nav bar */}
         <div className='flex-relative relative'>

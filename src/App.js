@@ -6,7 +6,8 @@ import Calculators from "./pages/Calculator/Calculators";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Nutritions from "./pages/Nutritions";
 import Footer from "./components/Footer/Footer";
-
+import  Register from "./pages/Register";
+import  Login from "./pages/Login";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
             <Route exact path='/Nutritions' element= {<Nutritions />} />
             <Route exact path='/Calculator' element= {<Calculators/>} />
             <Route exact path='/About%20Us' element= {<AboutUs />} />
+            <Route exact path='/Register' element= {<Register />} />
+            <Route exact path='/Login' element= {<Login />} />
           </Routes>
           <Nav />
           <Footer />

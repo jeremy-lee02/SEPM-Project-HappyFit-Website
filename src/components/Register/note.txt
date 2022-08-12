@@ -1,0 +1,2 @@
+// Create components (input, button,...)
+// import to Register in pages Folder
