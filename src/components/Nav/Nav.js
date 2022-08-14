@@ -10,7 +10,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 const NavBarItems = ({title, classProps}) =>{
   
   return(
-      <li className={`mx-3 cursor-pointer ${classProps} hover:text-blue drop-shadow-lg`}>
+      <li className={`text-white mx-3 cursor-pointer ${classProps} hover:text-blue drop-shadow-lg`}>
           <Link to={`/${title}`} className="hover:drop-shadow-lg">{title}</Link>
       </li>
   )
@@ -48,7 +48,7 @@ function Nav() {
                 <AiOutlineClose fontSize={28} className ="text-white cursor-pointer" onClick={()=>setToggle(false)} />
               </li>
               {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us' ].map((item, index)=>(
-                      <NavBarItems key = {item+index} title={item} classProps= "my-7 text-lg divide-y pt-2 text-black" />
+                      <NavBarItems key = {item+index} title={item} classProps= "my-7 text-lg divide-y pt-2 z-1000" />
               ))}
             </ul>
           )}
