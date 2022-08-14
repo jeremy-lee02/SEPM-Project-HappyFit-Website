@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import Modal from '../components/Modal/Modal'
-import Skeleton from '../components/Skeleton'
+import Skeleton from '../components/Skeleton/Skeleton'
 import Dummy_Data from '../pages/data.json'
-import '../components/Skeleton.css'
+import '../components/Skeleton/Skeleton.css'
 
 
 function Nutritions() {

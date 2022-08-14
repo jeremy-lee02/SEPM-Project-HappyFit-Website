@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Modal from '../../components/Modal/Modal'
-import Skeleton from '../../components/Skeleton'
-import '../../components/Skeleton.css'
+import Skeleton from '../../components/Skeleton/Skeleton'
+import '../../components/./Skeleton/Skeleton.css'
 
 
 
@@ -41,7 +41,7 @@ function Exercises() {
        <div className="">
         <div className="relative">
           {item.videoURL === ''? 
-          <iframe src={require('../../images/giphy.gif')} className='w-full h-full object-cover rounded-lg overflow-y-hidden' alt='' />
+          <iframe src={require('../../images/giphy.gif')} className='w-full h-fit object-cover rounded-lg overflow-y-hidden' alt='' />
           :<iframe src= {item.videoURL} className='w-full object-cover rounded-lg' title= {item.name}/ >
             }
         </div>
@@ -57,7 +57,7 @@ function Exercises() {
       <Skeleton />
       </div>
       <div className=''>
-        <Modal showModal={showModal} setShowModal = {setShowModal} img = {modalData.videoURL === ''? 'https://links.papareact.com/5j2': modalData.videoURL} title = {modalData.name} tech = {modalData.tip} title1={'Exercise Techniques:'} />
+        <Modal showModal={showModal} setShowModal = {setShowModal} img = {modalData.videoURL === ''? require('../../images/giphy.gif'): modalData.videoURL} title = {modalData.name} tech = {modalData.tip} title1={'Exercise Techniques:'} />
       </div>
       </div>
 )}
