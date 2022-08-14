@@ -48,7 +48,7 @@ function Nav() {
                 <AiOutlineClose fontSize={28} className ="text-white cursor-pointer" onClick={()=>setToggle(false)} />
               </li>
               {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us' ].map((item, index)=>(
-                      <NavBarItems key = {item+index} title={item} classProps= "my-7 text-lg divide-y pt-2" />
+                      <NavBarItems key = {item+index} title={item} classProps= "my-7 text-lg divide-y pt-2 z-1000" />
               ))}
             </ul>
           )}
