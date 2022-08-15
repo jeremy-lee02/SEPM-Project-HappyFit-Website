@@ -3,6 +3,7 @@ import Modal from '../components/Modal/Modal'
 import Skeleton from '../components/Skeleton/Skeleton'
 import Dummy_Data from '../pages/data.json'
 import '../components/Skeleton/Skeleton.css'
+import Search from '../components/Search'
 
 
 function Nutritions() {
@@ -19,6 +20,7 @@ function Nutritions() {
   return (
     <div className="">
     <h1 className="mt-24 justify-center pt-3">Nutritions</h1>
+    <Search/>
     <div className= {`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-16 gap-10 ${classProps}`}>
       {!loading?Dummy_Data.map((item) => (
       <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out" key={item.id} onClick ={()=>{

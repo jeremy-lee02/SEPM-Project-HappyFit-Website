@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Modal from '../../components/Modal/Modal'
 import Skeleton from '../../components/Skeleton/Skeleton'
 import '../../components/Skeleton/Skeleton.css'
-
+import Search from '../../components/Search'
 
 
 
@@ -31,6 +31,7 @@ function Exercises() {
   return (
     <div className="">
     <h1 className="mt-24 justify-center pt-3">Exercises</h1>
+    <Search/>
     <div className= {`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-16 gap-10 ${classProps}`}>
       {!loading? data.map((item) => (
       <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out text-left" key={item._id} onClick ={()=>{
