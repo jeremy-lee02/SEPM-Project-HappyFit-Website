@@ -11,7 +11,6 @@ import  Login from "./pages/Login";
 import React, {useState} from 'react'
 
 function App() {
-  const isLogin = true
   return (
     <div className='min-h-screen'>
       <div>
