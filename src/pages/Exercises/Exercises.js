@@ -34,8 +34,8 @@ function Exercises() {
   }, [value])
 
   return (
-    <div className="">
-    <h1 className="mt-24 justify-center pt-3">Exercises</h1>
+    <div className="bg-gray-800">
+    <h1 className="mt-24 justify-center pt-3 text-white">Exercises</h1>
     <Search value={value} onChange= {e => {
           if (e.target.value !== '') {
             setValue(e.target.value)
@@ -46,7 +46,7 @@ function Exercises() {
           }
     }}/>
     {data.length === 0? <p className='justify-center text-center pt-4 text-red'>No data with {value}</p> : null}
-    <div className= {`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-10 gap-10 ${classProps}`}>
+    <div className= {`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-10 text-white gap-10 ${classProps}`}>
       
       {!loading? data.map((item) => (
       <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out text-left" key={item._id} onClick ={()=>{
@@ -57,7 +57,7 @@ function Exercises() {
        <div className="">
         <div className="relative">
           {item.videoURL === ''? 
-          <iframe src={require('../../images/giphy.gif')} className='w-full h-fit object-cover rounded-lg overflow-y-hidden' title= {item.name} />
+          <img src={require('../../images/giphy.gif')} className='w-full h-fit object-cover rounded-lg w-1/2' alt= {item.name} />
           :<iframe src= {item.videoURL} className='w-full object-cover rounded-lg' title= {item.name}/ >
             }
         </div>

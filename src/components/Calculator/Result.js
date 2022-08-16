@@ -12,7 +12,7 @@ function Result({result}) {
   }
 
   return (
-    <div>
+    <div className='text-white'>
           {result == 0? null
           :<>
           <h3 className='font-bold inline-flex pt-2'> + Maintain Weight: </h3>

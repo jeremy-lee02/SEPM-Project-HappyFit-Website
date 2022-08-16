@@ -9,12 +9,14 @@ import Footer from "./components/Footer/Footer";
 import  Register from "./pages/Register";
 import  Login from "./pages/Login";
 import React, {useState} from 'react'
+import ScrollToTop from "./Hook/ScrollToTop";
 
 function App() {
   return (
     <div className='min-h-screen'>
       <div>
         <Router>
+          <ScrollToTop>
           <Routes>             
             <Route exact path='/' element= {<Home />} />
             <Route exact path='/Home' element= {<Home />} />
@@ -25,9 +27,11 @@ function App() {
             <Route exact path='/Register' element= {<Register />} />
             <Route exact path='/Login' element= {<Login />} />   
           </Routes>
+          </ScrollToTop>
           <Nav />
           <Footer />
         </Router>
+        
       </div>  
     </div>
   );
