@@ -14,24 +14,43 @@ function Nutritions() {
   const [loading, setLoading] = useState(true)
   const [classProps, setClassProps] = useState("")
   const [data, setData] = useState([])
+  const [url, setUrl] = useState('https://happy-fit-api.herokuapp.com/nutrition')
+  const [value, setValue] = useState('')
   
-  useEffect(()=>{
+  useEffect(()=> {
     setLoading(true)
     setClassProps("h-screen")
-    fetch('https://happy-fit-api.herokuapp.com/nutrition')
+    fetch(`${url}`)
     .then(res => res.json())
     .then(json => {
+      if (json.length === 0) {
+        setClassProps('')
+        setData(json)
+      }else{
       setData(json)
       setLoading(false)
-      setClassProps('')
+      setClassProps("")}
+      if (json.length <= 4) {
+        setClassProps('h-screen')
+        setData(json)
+      }
     })
-  }, [])
+  }, [value])
 
 
   return (
     <div className="bg-gray-800">
     <h1 className="mt-24 justify-center pt-3 text-white">Nutritions</h1>
-    <Search/>
+    <Search value={value} onChange= {e => {
+          if (e.target.value !== '') {
+            setValue(e.target.value)
+            setUrl(`https://happy-fit-api.herokuapp.com/nutrition/filterByName/${e.target.value}`)
+          }else{
+            setUrl('https://happy-fit-api.herokuapp.com/nutrition')
+            setValue('')
+          }
+    }}/>
+    {data.length === 0? <p className='justify-center text-center pt-4 text-red'>No data with {value}</p> : null}
     <div className= {`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-16 gap-10 text-white ${classProps}`}>
       {!loading?data.map((item) => (
       <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out" key={item.id} onClick ={()=>{

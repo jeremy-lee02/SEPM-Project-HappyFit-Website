@@ -30,6 +30,10 @@ function Exercises() {
       setData(json)
       setLoading(false)
       setClassProps("")}
+      if (json.length <= 4) {
+        setClassProps('h-screen')
+        setData(json)
+      }
     })
   }, [value])
 
