@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Modal from '../components/Modal/Modal'
 import Skeleton from '../components/Skeleton/Skeleton'
-import Dummy_Data from '../pages/data.json'
 import '../components/Skeleton/Skeleton.css'
 import Search from '../components/Search'
 
@@ -15,12 +14,17 @@ function Nutritions() {
   const [loading, setLoading] = useState(true)
   const [classProps, setClassProps] = useState("")
   const [data, setData] = useState([])
+  
   useEffect(()=>{
     setLoading(true)
+    setClassProps("h-screen")
     fetch('https://happy-fit-api.herokuapp.com/nutrition')
     .then(res => res.json())
-    .then(json => setData(json))
-    setLoading(false)
+    .then(json => {
+      setData(json)
+      setLoading(false)
+      setClassProps('')
+    })
   }, [])
 
 

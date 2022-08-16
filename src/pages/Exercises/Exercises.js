@@ -70,7 +70,6 @@ function Exercises() {
         </div>
       </div>
       )): <Skeleton/>}
-      <Skeleton />
       </div>
       <div className=''>
         <Modal showModal={showModal} setShowModal = {setShowModal} img = {modalData.videoURL === ''? require('../../images/giphy.gif'): modalData.videoURL} title = {modalData.name} tech = {modalData.tip} title1={'Exercise Techniques:'} />
