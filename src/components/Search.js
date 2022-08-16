@@ -4,7 +4,7 @@ import './Search.css'
 export default function Search({value, onChange}) {
     return (
         <div className="flex justify-center mt-4">
-            <div className="flex  justify-between">
+            <div className="flex justify-between">
                 <button>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

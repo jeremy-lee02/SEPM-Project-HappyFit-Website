@@ -10,6 +10,7 @@ import  Register from "./pages/Register";
 import  Login from "./pages/Login";
 import React, {useState} from 'react'
 import ScrollToTop from "./Hook/ScrollToTop";
+import BackToTop from "./components/BackToTop";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           </ScrollToTop>
           <Nav />
           <Footer />
+          <BackToTop />
         </Router>
         
       </div>  

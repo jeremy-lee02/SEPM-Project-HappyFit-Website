@@ -4,6 +4,11 @@ import Skeleton from '../components/Skeleton/Skeleton'
 import '../components/Skeleton/Skeleton.css'
 import Search from '../components/Search'
 
+const Error = ({title, value}) =>{
+  return (
+    <p className='justify-center text-center pt-4 text-red'>{title} {value}</p>
+  )
+}
 
 function Nutritions() {
   // const capitalLetter = (item) =>{
@@ -50,7 +55,7 @@ function Nutritions() {
             setValue('')
           }
     }}/>
-    {data.length === 0? <p className='justify-center text-center pt-4 text-red'>No data with {value}</p> : null}
+    {data.length === 0? <Error title={value ===''?'':'No Nutritions with '} value={value} /> : null}
     <div className= {`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-16 gap-10 text-white ${classProps}`}>
       {!loading?data.map((item) => (
       <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out" key={item.id} onClick ={()=>{

@@ -3,7 +3,13 @@ import Modal from '../../components/Modal/Modal'
 import Skeleton from '../../components/Skeleton/Skeleton'
 import '../../components/Skeleton/Skeleton.css'
 import Search from '../../components/Search'
+import BackToTop from '../../components/BackToTop'
 
+const Error = ({title, value}) =>{
+  return (
+    <p className='justify-center text-center pt-4 text-red'>{title} {value}</p>
+  )
+}
 
 
 function Exercises() {
@@ -17,10 +23,11 @@ function Exercises() {
   const [classProps, setClassProps] = useState("")
   const [url, setUrl] = useState('https://happy-fit-api.herokuapp.com/exercises')
   const [value, setValue] = useState('')
+  
   useEffect(()=> {
     setLoading(true)
     setClassProps("h-screen")
-    fetch(`${url}`)
+    fetch(url)
     .then(res => res.json())
     .then(json => {
       if (json.length === 0) {
@@ -49,7 +56,7 @@ function Exercises() {
             setValue('')
           }
     }}/>
-    {data.length === 0? <p className='justify-center text-center pt-4 text-red'>No data with {value}</p> : null}
+    {data.length === 0? <Error title={value ===''?'':'No Exercises with '} value={value} /> : null}
     <div className= {`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-10 text-white gap-10 ${classProps}`}>
       
       {!loading? data.map((item) => (
@@ -61,7 +68,7 @@ function Exercises() {
        <div className="">
         <div className="relative">
           {item.videoURL === ''? 
-          <img src={require('../../images/giphy.gif')} className='w-full h-fit object-cover rounded-lg w-1/2' alt= {item.name} />
+          <img src={require('../../images/giphy.gif')} className='w-full object-cover rounded-lg w-1/3' alt= {item.name} />
           :<iframe src= {item.videoURL} className='w-full object-cover rounded-lg' title= {item.name}/ >
             }
         </div>
