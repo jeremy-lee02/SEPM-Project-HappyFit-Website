@@ -14,7 +14,7 @@ import BackToTop from "./components/BackToTop";
 
 function App() {
   return (
-    <div className='min-h-screen'>
+    <div className='min-h-screen bg-gray-800'>
       <div>
         <Router>
           <ScrollToTop>

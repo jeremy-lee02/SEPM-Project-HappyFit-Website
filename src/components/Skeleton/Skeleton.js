@@ -6,7 +6,7 @@ import './Skeleton.css'
 function Skeleton() {
   return (
     <>
-        {Array(8).fill(0).map((item, index)=>(
+        {Array(4).fill(0).map((item, index)=>(
                 <div key={item+index}>
                     <div className="relative">
                         <iframe className='w-full object-cover rounded-lg gradient' />
