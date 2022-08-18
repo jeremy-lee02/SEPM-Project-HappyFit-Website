@@ -3,7 +3,7 @@ import Modal from '../../components/Modal/Modal'
 import Skeleton from '../../components/Skeleton/Skeleton'
 import '../../components/Skeleton/Skeleton.css'
 import Search from '../../components/Search'
-import BackToTop from '../../components/BackToTop'
+import useInfiniteScroll from '../../Hook/useInfiniteScroll'
 
 const Error = ({title, value}) =>{
   return (
@@ -13,16 +13,16 @@ const Error = ({title, value}) =>{
 
 
 function Exercises() {
-  const capitalLetter = (item) =>{
-    return item.charAt(0).toUpperCase() + item.slice(1)
-  }
+
+  const [page, setPage] = useState(2)
   const [showModal, setShowModal] = useState(false)
   const [modalData, setModalData] = useState([])
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [classProps, setClassProps] = useState("")
-  const [url, setUrl] = useState('https://happy-fit-api.herokuapp.com/exercises')
+  const [url, setUrl] = useState('https://happy-fit-api.herokuapp.com/exercises?page=1')
   const [value, setValue] = useState('')
+  useInfiniteScroll(value, page)
   
   useEffect(()=> {
     setLoading(true)
@@ -52,7 +52,7 @@ function Exercises() {
             setValue(e.target.value)
             setUrl(`https://happy-fit-api.herokuapp.com/exercises/filterByName/${e.target.value}`)
           }else{
-            setUrl('https://happy-fit-api.herokuapp.com/exercises')
+            setUrl('https://happy-fit-api.herokuapp.com/exercises?page=1')
             setValue('')
           }
     }}/>

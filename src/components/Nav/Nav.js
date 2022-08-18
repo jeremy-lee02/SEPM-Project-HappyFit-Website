@@ -19,7 +19,8 @@ const NavBarItems = ({title, classProps}) =>{
 function Nav() {
   const navigate = useNavigate()
   const [toggle, setToggle] = useState(false);
-  const [isLog,setIslog] = useState(false)
+  const [isLogin,setIsLogin] = useState(false)
+  
 
   return (
     <div className='relative'>
@@ -34,6 +35,7 @@ function Nav() {
                   {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us'].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}
+                  {isLogin?<NavBarItems title={'Username'} classProps ={'text-sm pl-5'} />:null}
                   
         </ul>
         {/* Create responsive nav bar */}
