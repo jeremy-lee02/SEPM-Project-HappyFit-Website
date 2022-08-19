@@ -10,8 +10,7 @@ function Login() {
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
-  const [loading,setLoading] = useState(false);
- 
+
   const refreshPage = ()=>{
     window.location.reload();
  }
@@ -27,7 +26,7 @@ const handleLogin = async (e) =>{
     
 
     const data = await axios.post(
-      "https://happy-fit-api.herokuapp.com/auth/login",
+      "https://happy-fit-api-v2.herokuapp.com/auth/login",
       {email,password}
     );
     if(data) {
@@ -36,6 +35,7 @@ const handleLogin = async (e) =>{
     const displayInfo = {
       id: user._id,
       email: user.email,
+      password: user.password,
       token: user.accessTok,
       firstname: user.firstname,
       lastname: user.lastname,

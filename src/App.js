@@ -9,7 +9,7 @@ import Footer from "./components/Footer/Footer";
 import  Register from "./pages/Register";
 import  Login from "./pages/Login";
 import React, {useState} from 'react'
-
+import Profile from './components/Profile/Profile'
 function App() {
   return (
     <div className='min-h-screen'>
@@ -23,7 +23,8 @@ function App() {
             <Route exact path='/Calculator' element= {<Calculators/>} />
             <Route exact path='/About%20Us' element= {<AboutUs />} />
             <Route exact path='/Register' element= {<Register />} />
-            <Route exact path='/Login' element= {<Login />} />  
+            <Route exact path='/Login' element= {<Login />} />
+            <Route exact path='/Profile' element= {<Profile/>} />    
  
           </Routes>
           <Nav />
