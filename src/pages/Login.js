@@ -27,7 +27,7 @@ const handleLogin = async (e) =>{
     
 
     const data = await axios.post(
-      "http://localhost:4000/auth/login",
+      "https://happy-fit-api.herokuapp.com/auth/login",
       {email,password}
     );
     if(data) {
