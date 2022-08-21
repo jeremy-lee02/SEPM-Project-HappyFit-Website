@@ -3,10 +3,10 @@ import './Skeleton.css'
 
 
 
-function Skeleton() {
+function Skeleton({number}) {
   return (
     <>
-        {Array(4).fill(0).map((item, index)=>(
+        {Array(number).fill(0).map((item, index)=>(
                 <div key={item+index}>
                     <div className="relative">
                         <iframe className='w-full object-cover rounded-lg gradient' />

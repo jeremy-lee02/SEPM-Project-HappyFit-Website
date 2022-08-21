@@ -37,21 +37,23 @@ function AboutUs() {
   };
   return (
     <>
-    <h2 className="mt-28 justify-center">About Us</h2>
-    <div className="AboutUs h-screen hover:drop-shadow-lg"> 
-      <Slider {...settings} className = 'pt-16'>
-      {about_us.map((item) => (
-      <div className="card cursor-pointer hover:scale-105 hover:rounded-md" key={item.id}>
-       <div className="card-top flex justify-center">
-         <img  src={require('../../images/'+ item.src + '.png')} alt={item.name} className= "rounded-full pt-3" />   
+    <div className='bg-gray-800'>
+      <h2 className="mt-24 justify-center text-white pt-3">About Us</h2>
+      <div className="AboutUs h-screen hover:drop-shadow-lg text-white "> 
+        <Slider {...settings} className = 'pt-16 '>
+        {about_us.map((item) => (
+        <div className="card cursor-pointer hover:scale-105 hover:rounded-md " key={item.id}>
+        <div className="card-top flex justify-center">
+          <img  src={require('../../images/'+ item.src + '.png')} alt={item.name} className= "rounded-full pt-3" />   
+          </div>
+          <div className="card-bottom"> 
+            <h1 className='bold justify-center font-big'>{item.name}</h1>
+            <h3 className='pt-2'>{item.description}</h3>
+          </div>
         </div>
-        <div className="card-bottom"> 
-          <h1 className='bold justify-center font-big'>{item.name}</h1>
-          <h3 className='pt-2'>{item.description}</h3>
-        </div>
+        ))}
+        </Slider>
       </div>
-      ))}
-      </Slider>
     </div>
     </>
   );

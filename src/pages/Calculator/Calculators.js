@@ -67,10 +67,10 @@ function Calculators() {
 
 
   return (
-    <div className='h-screen'>
-      <h1 className="mt-24 justify-center pt-3">Calculator</h1>
+    <div className='h-screen bg-gray-800'>
+      <h1 className="mt-24 justify-center pt-3 text-white">Calculator</h1>
       <div className='container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2'>
-        <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full mt-6">
+        <div className="bg-gray-900 px-6 py-8 rounded shadow-md text-black w-full mt-6">
           <p className='text-sm text-red'>{error}</p>
           <Input type={'number'} name= {'height'} placeholder= {'Enter your height (cm)'} value= {heightValue} onChange = {(e) => {
             setHeightValue(e.target.value)
