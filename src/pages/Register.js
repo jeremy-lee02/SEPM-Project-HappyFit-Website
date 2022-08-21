@@ -106,7 +106,7 @@ function Register() {
         </div>
 
         <div>
-        Already have an account?<button className='text-white hover:text-blue p-2' onClick={changeRoute} > Login</button>
+        <button className='text-white hover:text-blue p-2' onClick={changeRoute} >Already have an account? </button>
         </div>
             
         </form>

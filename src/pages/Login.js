@@ -23,8 +23,6 @@ function Login() {
 const handleLogin = async (e) =>{
   e.preventDefault();
   try{
-    
-
     const data = await axios.post(
       "https://happy-fit-api-v2.herokuapp.com/auth/login",
       {email,password}
@@ -53,12 +51,12 @@ const handleLogin = async (e) =>{
   };
 }
   return (
-    <div className=' w-full h-screen bg-gray-800'>
+    <div className=' w-full bg-gray-800'>
       <div className=' items-center justify-center'>
         <div className='mt-24 text-white'>
         <h1 className='justify-center pt-5'>Login</h1>
         </div>
-        <form action='' className='max-w-[550px] w-full mx-auto p-20 px-8 rounded-lg  bg-gray-900 mt-10' onSubmit={handleLogin}>
+        <form action='' className='max-w-[550px] w-full mx-auto p-20 px-8 rounded-lg  bg-gray-900 mt-10'>
             <div className='flex flex-col py-2'>
               {message && <div className='justify-center text-red '>{message}</div>}
               <InputLogin 
@@ -74,9 +72,9 @@ const handleLogin = async (e) =>{
               placeholder={'Password'}
               onChange={(e)=> setPassword(e.target.value)}/>
             </div>
-            <ButtonLogin type ={"submit"} text={'Sign In'}/>
+            <ButtonLogin type ={"submit"} text={'Sign In'} onClick ={handleLogin}/>
             <div>
-            Doesn't have an account? <button className='text-white hover:text-blue p-2' onClick={changeRoute}> Register </button>
+            <button className='text-white hover:text-blue p-2' onClick={changeRoute}> Doesn't have an account? </button>
             </div>
         </form>
       </div>
