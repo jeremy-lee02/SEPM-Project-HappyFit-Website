@@ -1,14 +1,14 @@
 import React from 'react'
 import './Nav.css'
-import { useState } from 'react'
-import {useNavigate, Link } from 'react-router-dom'
+import { useState,useEffect } from 'react'
+import {useNavigate, Link, useLocation } from 'react-router-dom'
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 
 
 
 const NavBarItems = ({title, classProps}) =>{
-  
+ 
   return(
       <li className={`text-white mx-3 cursor-pointer ${classProps} hover:text-blue drop-shadow-lg`}>
           <Link to={`/${title}`} className="hover:drop-shadow-lg">{title}</Link>
@@ -17,11 +17,22 @@ const NavBarItems = ({title, classProps}) =>{
 }
 
 function Nav() {
-  const navigate = useNavigate()
+  const refreshPage = ()=>{
+    window.location.reload();
+ }
+  const location = useLocation();
+  const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
-  const [isLogin,setIsLogin] = useState(false)
-  
-
+  const [isLog,setIslog] = useState(false)
+  const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const handleLogout=()=>{
+    localStorage.clear();
+    refreshPage();
+  }
+  useEffect(()=>{
+    setUser(JSON.parse(localStorage.getItem('profile')))
+  }, [location])
+  console.log(user)
   return (
     <div className='relative'>
       {/* Create a navigation bar */}
@@ -32,11 +43,10 @@ function Nav() {
           </Link>
         </div>
         <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial text-base pl-72'>
-                  {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us'].map((item, index)=>(
+                  {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Profile') :'Login'}`].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}
-                  {isLogin?<NavBarItems title={'Username'} classProps ={'text-sm pl-5'} />:null}
-                  
+                  <button onClick={handleLogout}>{user ? ('Logout') :''}</button>
         </ul>
         {/* Create responsive nav bar */}
         <div className='flex-relative relative'>
@@ -49,9 +59,10 @@ function Nav() {
               <li className='text-xl w-full my-2 pt-3'>
                 <AiOutlineClose fontSize={28} className ="text-white cursor-pointer" onClick={()=>setToggle(false)} />
               </li>
-              {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us' ].map((item, index)=>(
+              {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us', `${user ? ('Profile') :'Login'}`].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} classProps= "my-7 text-lg divide-y pt-2 z-1000" />
               ))}
+              <button>{user ? ('Logout') :''}</button>
             </ul>
           )}
 
