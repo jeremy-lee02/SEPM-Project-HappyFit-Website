@@ -51,7 +51,7 @@ const handleLogin = async (e) =>{
   };
 }
   return (
-    <div className=' w-full bg-gray-800'>
+    <div className=' w-full h-screen bg-gray-800'>
       <div className=' items-center justify-center'>
         <div className='mt-24 text-white'>
         <h1 className='justify-center pt-5'>Login</h1>

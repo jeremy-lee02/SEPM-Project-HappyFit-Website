@@ -46,7 +46,7 @@ function Register() {
   }
 
   return (
-    <div className=' w-full h-screen bg-gray-800'>
+    <div className=' w-full bg-gray-800'>
       <div className=' items-center justify-center'>
         
         <div className='mt-24 text-white'>
