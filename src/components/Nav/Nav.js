@@ -27,7 +27,8 @@ function Nav() {
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const handleLogout=()=>{
     localStorage.clear();
-    refreshPage();
+    let path = '/Home'
+    navigate(path)
   }
   useEffect(()=>{
     setUser(JSON.parse(localStorage.getItem('profile')))

@@ -23,26 +23,27 @@ function Login() {
 const handleLogin = async (e) =>{
   e.preventDefault();
   try{
-    const data = await axios.post(
-      "https://happy-fit-api-v2.herokuapp.com/auth/login",
+    console.log(email, password)
+    const {data} = await axios.post(
+      "https://happy-fit-api.herokuapp.com/auth/login",
       {email,password}
     );
     if(data) {
     
-    setUser(data.data)
+    setUser(data.currentUser)
     const displayInfo = {
-      id: user._id,
-      email: user.email,
-      password: user.password,
-      token: user.accessTok,
-      firstname: user.firstname,
-      lastname: user.lastname,
-      imageUrl: user.imageUrl
+      id: data.currentUser._id,
+      email: data.currentUser.email,
+      password: data.currentUser.password,
+      token: data.accessTok,
+      firstname: data.currentUser.firstname,
+      lastname: data.currentUser.lastname,
+      imageUrl: data.currentUser.imageUrl
     }
     console.log(displayInfo)
     localStorage.setItem('profile',JSON.stringify(displayInfo))
 ;}
-    let path = '/Exercises'
+    let path = '/Home'
     navigate(path)
     }
   catch(e){

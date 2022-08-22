@@ -2,20 +2,23 @@ import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useState} from 'react';
 import axios from 'axios';
-import ProfileField from './ProfileField';
-import UpdateButton from './UpdateButton';
+import ProfileField from '../components/Profile/ProfileField';
+import UpdateButton from '../components/Profile/UpdateButton';
 
 function Register() {
     const refreshPage = ()=>{
         window.location.reload();
      }
-     const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-    const [imageUrl,setImageUrl] = useState("");
-    const [password,setPassword] = useState("");
-    const [email,setEmail] = useState("");
-    const [firstname,setFirstname] = useState("");
-    const [lastname,setLastname] = useState("");
+     
+    const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+    const [id,setId] = useState(user.id)
+    const [imageUrl,setImageUrl] = useState(user.imageUrl);
+    const [password,setPassword] = useState(user.password);
+    const [email,setEmail] = useState(user.email);
+    const [firstname,setFirstname] = useState(user.firstname);
+    const [lastname,setLastname] = useState(user.lastname);
     const [message,setMessage] = useState("");
+    const [token,setToken] = useState(user.token)
     const [isEdit, setIsEdit] = useState(true);
     const url = "https://happy-fit-api.herokuapp.com/auth/user"
 
@@ -33,23 +36,44 @@ function Register() {
         e.preventDefault();
         setMessage('')
         try{
-            const {data}= await axios.patch(
-            `${url}/${user.id}`,
-            {email,password,firstname,lastname,imageUrl},
-            {headers:{
-                Authorization: 'Bearer ' + user.token
-            }
-            })
-            refreshPage();
+          
+          const updatedUser = {
+            email: email,
+            password: password,
+            firstname: firstname,
+            lastname: lastname,
+            imageUrl: imageUrl
+          }
+
+          const {data} = await axios.patch(
+          `${url}/${user.id}`,
+          updatedUser,
+          {headers:{
+            Authorization: `Bearer ${user.token}`
+          }})
+          const newData ={
+            id: id,
+            token: token,
+            email: email,
+            password: password,
+            firstname: firstname,
+            lastname: lastname,
+            imageUrl: imageUrl
+          }
+          localStorage.setItem('profile', JSON.stringify(newData))
+          console.log(JSON.parse(localStorage.getItem('profile')))
+          // localStorage.clear();
+          // localStorage.setItem('profile', user);
+          // refreshPage();
         } catch(error){
             console.log(error)
             setMessage("Update failed. Try Again!")
         }
         }
-
+        
   return (
     
-    <div className=' w-full h-screen bg-gray-800'>
+    <div className=' w-full  bg-gray-800'>
       {user ? (<div className=' items-center justify-center'>
         
         <div className='mt-24 text-white'>
@@ -57,29 +81,21 @@ function Register() {
         </div>
         <UpdateButton text={isEdit ? ("Edit profile") : "Cancel"} onClick={handleEdit}/>
         <form action='' className='max-w-[550px] w-full mx-auto p-20 px-8 rounded-lg  bg-gray-900 mt-10' onSubmit={handleSubmit}>
-        <div className='text-white justify-center'>Profile Picture:</div>
-        <img width={200}
-        src={`${user.imageUrl}`}
+        <div className='text-white flex justify-center'>
+        
+        <img className=" rounded-full" width={300}
+        src={`${imageUrl}`}
         alt="Profile picture"
-        />
-        <div className='text-white'>{message && <h3>{message}</h3>}</div>
+        /></div>
+        
+        <div className='text-red'>{message && <h3>{message}</h3>}</div>
         <div className='flex flex-col py-2'>
         <div className='text-white'>Email:</div>
           <ProfileField
           name={email}
           type = "email"
-          value={user.email}
-          disabled = {isEdit}
-          onChange={(e)=>setEmail(e.target.value)}
-          />
-        </div>
-        <div className='flex flex-col py-2'>
-        <div className='text-white'>Password:</div>
-          <ProfileField
-          name={password}
-          type = "password"
-          disabled = {isEdit}
-          onChange={(e)=>setPassword(e.target.value)}
+          value={email}
+          disabled = {true}
           />
         </div>
         <div className='flex flex-col py-2'>
@@ -87,7 +103,7 @@ function Register() {
           <ProfileField
           name={firstname}
           type = "text"
-          value={user.firstname}
+          value={firstname}
           disabled = {isEdit}
           onChange={(e)=>setFirstname(e.target.value)}
           />
@@ -97,7 +113,7 @@ function Register() {
           <ProfileField
           name={lastname}
           type = "text"
-          value={user.lastname}
+          value={lastname}
           disabled = {isEdit}
           onChange={(e)=>setLastname(e.target.value)}
           />
@@ -107,7 +123,7 @@ function Register() {
           <ProfileField
           name={imageUrl}
           type = "text"
-          value={user.imageUrl}
+          value={imageUrl}
           disabled = {isEdit}
           onChange={(e)=>setImageUrl(e.target.value)}
           />

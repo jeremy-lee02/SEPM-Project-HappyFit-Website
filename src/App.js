@@ -11,7 +11,7 @@ import  Login from "./pages/Login";
 import React, {useState} from 'react'
 import ScrollToTop from "./Hook/ScrollToTop";
 import BackToTop from "./components/BackToTop";
-import Profile from './components/Profile/Profile'
+import Profile from './pages/Profile'
 function App() {
   return (
     <div className='min-h-screen bg-gray-800'>
