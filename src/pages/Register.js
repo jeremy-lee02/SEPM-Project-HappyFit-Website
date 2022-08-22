@@ -28,7 +28,7 @@ function Register() {
       setMessage('')
       try{
         const {data}= await axios.post(
-          "https://happy-fit-api-v2.herokuapp.com/auth/signup",
+          "https://happy-fit-api.herokuapp.com/auth/signup",
           {email,password,firstname,lastname,imageUrl}
         )
 
