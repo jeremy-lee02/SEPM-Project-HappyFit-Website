@@ -17,14 +17,14 @@ function Exercises() {
   const [showModal, setShowModal] = useState(false)
   const [modalData, setModalData] = useState([])
   const [classProps, setClassProps] = useState("")
-  const [url, setUrl] = useState('https://happy-fit-api.herokuapp.com/exercises')
+  //const [url, setUrl] = useState('https://happy-fit-api.herokuapp.com/exercises')
   const [value, setValue] = useState('')
 
   useEffect(()=>{
     
   }, [value])
 
-  const {loading, error, data, hasMore} = useInfiniteScroll(value, page, url)
+  const {loading, error, data, hasMore} = useInfiniteScroll(value, page)
   const observer = useRef()
   const lastEle = useCallback(node =>{
     if (loading) return
@@ -46,10 +46,11 @@ function Exercises() {
     <Search value={value} onChange= {e => {
           if (e.target.value !== '') {
             setValue(e.target.value)
-            setUrl(`https://happy-fit-api.herokuapp.com/exercises/filterByName/${e.target.value}`)
+            //setUrl(`https://happy-fit-api.herokuapp.com/exercises/filterByName/${e.target.value}`)
           }else{
             setValue('')
-            setUrl('https://happy-fit-api.herokuapp.com/exercises')
+            setPage(1)
+            //setUrl('https://happy-fit-api.herokuapp.com/exercises')
           }
     }}/>
     {/* {data.length === 0? <Error title={value ===''?'':'No Exercises with '} value={value} /> : null} */}
