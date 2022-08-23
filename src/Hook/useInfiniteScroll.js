@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 
-export default function useInfiniteScroll(value, pageNumber, url) {
+export default function useInfiniteScroll(value, pageNumber) {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
     const [data, setData] = useState([])
@@ -16,12 +16,23 @@ export default function useInfiniteScroll(value, pageNumber, url) {
         let cancle
         axios({
             method:'GET',
-            url: `${url}`,
-            params: {page: pageNumber},
+            url: `https://happy-fit-api.herokuapp.com/exercises`,
+            params: {page: pageNumber, value:value},
             cancelToken: new axios.CancelToken(c => cancle = c)     
         })
         .then(res =>{
-            setData([...data, ...res.data])
+            const noDuplicate = []
+            if (data == null) {
+                setData(res.data)
+            }else{
+                res.data.forEach(element => {
+                    if (!data.some(ele => ele._id === element._id)) {
+                        noDuplicate.push(element)
+                    }
+                });
+                setData([...data, ...noDuplicate])
+            }
+            //setData([...data, ...res.data])
             setHasMore(res.data.length > 0)
             setLoading(false)
         }).catch(e => {
@@ -29,6 +40,6 @@ export default function useInfiniteScroll(value, pageNumber, url) {
             setError(true)
         })
         return () => cancle();
-    },[pageNumber])
+    },[pageNumber,value])
   return {loading, error, data, hasMore}
 }
