@@ -7,7 +7,7 @@ import useInfiniteScroll from '../../Hook/useInfiniteScroll'
 
 const Error = ({title, value}) =>{
   return (
-    <p className='justify-center text-center pt-4 text-red'>{title} {value}</p>
+    <p className='justify-center text-center pt-4 text-red h-screen'>{title} {value}</p>
   )
 }
 
@@ -32,13 +32,10 @@ function Exercises() {
     observer.current = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting && hasMore) {
         setPage(prev => prev +1 )
-        console.log('last ele')
       }
     })
     if(node) observer.current.observe(node)
   }, [loading, hasMore])
-
-  
 
   return (
     <div className="bg-gray-800">
@@ -46,14 +43,12 @@ function Exercises() {
     <Search value={value} onChange= {e => {
           if (e.target.value !== '') {
             setValue(e.target.value)
-            //setUrl(`https://happy-fit-api.herokuapp.com/exercises/filterByName/${e.target.value}`)
           }else{
             setValue('')
             setPage(1)
-            //setUrl('https://happy-fit-api.herokuapp.com/exercises')
           }
     }}/>
-    {/* {data.length === 0? <Error title={value ===''?'':'No Exercises with '} value={value} /> : null} */}
+    {data.length === 0? <Error title={value ===''?'':'No Exercises with '} value={value} /> : null}
     <div className= {`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-10 text-white gap-10 ${classProps}`}>
       {data.map((item, index) => {
         if (data.length === index + 1) {

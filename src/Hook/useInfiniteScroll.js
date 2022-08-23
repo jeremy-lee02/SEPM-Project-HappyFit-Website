@@ -32,7 +32,6 @@ export default function useInfiniteScroll(value, pageNumber) {
                 });
                 setData([...data, ...noDuplicate])
             }
-            //setData([...data, ...res.data])
             setHasMore(res.data.length > 0)
             setLoading(false)
         }).catch(e => {
