@@ -33,7 +33,6 @@ function Nav() {
   useEffect(()=>{
     setUser(JSON.parse(localStorage.getItem('profile')))
   }, [location])
-  console.log(user)
   return (
     <div className='relative'>
       {/* Create a navigation bar */}
