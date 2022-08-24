@@ -4,10 +4,11 @@ import Skeleton from '../../components/Skeleton/Skeleton'
 import '../../components/Skeleton/Skeleton.css'
 import Search from '../../components/Search'
 import useInfiniteScroll from '../../Hook/useInfiniteScroll'
+import useAdd from '../../Hook/useAdd'
 
 const Error = ({title, value}) =>{
   return (
-    <p className='justify-center text-center pt-4 text-red h-screen'>{title} {value}</p>
+    <p className='justify-center text-center pt-4 text-red'>{title} {value}</p>
   )
 }
 
@@ -16,13 +17,10 @@ function Exercises() {
   const [page, setPage] = useState(1)
   const [showModal, setShowModal] = useState(false)
   const [modalData, setModalData] = useState([])
-  const [classProps, setClassProps] = useState("")
+  const [addedData, setAddedData] = useState([])
   //const [url, setUrl] = useState('https://happy-fit-api.herokuapp.com/exercises')
   const [value, setValue] = useState('')
-
-  useEffect(()=>{
-    
-  }, [value])
+  useAdd(addedData)
 
   const {loading, error, data, hasMore} = useInfiniteScroll(value, page)
   const observer = useRef()
@@ -49,16 +47,12 @@ function Exercises() {
           }
     }}/>
     {data.length === 0? <Error title={value ===''?'':'No Exercises with '} value={value} /> : null}
-    <div className= {`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-10 text-white gap-10 ${classProps}`}>
+    <div className= {`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-10 text-white gap-10`}>
       {data.map((item, index) => {
         if (data.length === index + 1) {
           return(
-            <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out text-left" ref={lastEle} key={item._id} onClick ={()=>{
-              setShowModal(prev => !prev)
-              setModalData(item);
-      
-            }}>
-             <div className="">
+            <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out text-left" ref={lastEle} key={item._id} >
+             <div className="" >
               <div className="relative">
                 {item.videoURL === ''? 
                 <img src={require('../../images/giphy.gif')} className='w-full object-cover rounded-lg w-1/3' alt= {item.name} />
@@ -76,12 +70,13 @@ function Exercises() {
           )
         }else{
           return(
-            <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out text-left" key={item._id} onClick ={()=>{
+            <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out text-left" key={item._id} >
+             <div className="">
+              <div onClick ={()=>{
               setShowModal(prev => !prev)
               setModalData(item);
       
             }}>
-             <div className="">
               <div className="relative">
                 {item.videoURL === ''? 
                 <img src={require('../../images/giphy.gif')} className='w-full object-cover rounded-lg w-1/3' alt= {item.name} />
@@ -94,6 +89,8 @@ function Exercises() {
                   <br/>
                   <h3 className='font-bold inline-flex pt-1 pb-1'>Exercise Difficulty: </h3>
                   <span> {`Level ${item.difficulty}`}</span>
+              </div>
+              <button className='bg-blue w-1/2 rounded-md hover:bg-blue-700' onClick={()=>setAddedData([...addedData, item])}>Add</button>
               </div>
             </div>
           )
