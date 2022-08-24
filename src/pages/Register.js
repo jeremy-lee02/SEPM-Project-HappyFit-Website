@@ -46,7 +46,7 @@ function Register() {
   }
 
   return (
-    <div className=' w-full bg-gray-800'>
+    <div className=' w-full bg-gray-800 h-screen'>
       <div className=' items-center justify-center'>
         
         <div className='mt-24 text-white'>
@@ -54,7 +54,6 @@ function Register() {
         </div>
         <form action='' className='max-w-[550px] w-full mx-auto p-20 px-8 rounded-lg  bg-gray-900 mt-10' onSubmit={handleRegister}>
         <div className='text-red'>{message && <h3>{message}</h3>}</div>
-
         <div className='flex flex-col py-2'>
           <InputLogin 
           type={'email'} 
@@ -79,18 +78,24 @@ function Register() {
           onChange={(e)=> setConfirmedPassword(e.target.value)}/>
         </div>
 
-        <div className=' py-2'>
+        <div className='flex gap-4 py-2'>
+          <div>
           <InputLogin 
           type={'text'} 
           name={'firstName'} 
           placeholder={'First name'} 
           onChange={(e)=> setFirstname(e.target.value)}/>
-          
+          </div>
+
+          <div>
+
           <InputLogin 
           type={'text'} 
           name={'lastName'} 
           placeholder={'Last name'}
           onChange={(e)=> setLastname(e.target.value)}/>
+          </div>
+          
         </div>
 
         <div className='flex flex-col py-2'>

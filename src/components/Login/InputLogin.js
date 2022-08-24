@@ -4,7 +4,7 @@ function InputLogin({type, name, placeholder, onChange, value}){
         <>
         <input 
           type={type} 
-          className="rounded-lg mt-2 p-2" 
+          className= {`rounded-lg mt-2 p-2`}
           name={name} 
           value = {value}
           placeholder={placeholder}
