@@ -24,7 +24,7 @@ function Exercises() {
   const [value, setValue] = useState('')
   const [date, setDate] = useState('')
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-  useAdd(addedData, date)
+  useAdd(user.id, addedData, date, user.token)
 
   const {loading, error, data, hasMore} = useInfiniteScroll(value, page)
   const observer = useRef()
@@ -105,7 +105,7 @@ function Exercises() {
                     if (date === '') {
                       alert('Please select date!')
                     }else{
-                      setAddedData(item.name)
+                      setAddedData(item)
                     }
                   }}>
                     <AiFillPlusCircle className='icon' />

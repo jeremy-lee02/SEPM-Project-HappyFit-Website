@@ -12,6 +12,7 @@ import React, {useState} from 'react'
 import ScrollToTop from "./Hook/ScrollToTop";
 import BackToTop from "./components/BackToTop";
 import Profile from './pages/Profile'
+import Schedule from './pages/Schedule'
 function App() {
   return (
     <div className='min-h-screen bg-gray-800'>
@@ -28,6 +29,7 @@ function App() {
             <Route exact path='/Register' element= {<Register />} />
             <Route exact path='/Login' element= {<Login />} />
             <Route exact path='/Profile' element= {<Profile/>} />   
+            <Route exact path='/Schedule' element= {<Schedule/>} />
           </Routes>
           </ScrollToTop>
           <Nav />

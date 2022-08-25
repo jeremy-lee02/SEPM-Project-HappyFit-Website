@@ -43,7 +43,7 @@ function Nav() {
           </Link>
         </div>
         <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial text-base pl-72'>
-                  {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Profile') :'Login'}`].map((item, index)=>(
+                  {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Schedule') :''}`,`${user ? ('Profile') :'Login'}`].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}
                   <button onClick={handleLogout}>{user ? ('Logout') :''}</button>
@@ -59,7 +59,7 @@ function Nav() {
               <li className='text-xl w-full my-2 pt-3'>
                 <AiOutlineClose fontSize={28} className ="text-white cursor-pointer" onClick={()=>setToggle(false)} />
               </li>
-              {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us', `${user ? ('Profile') :'Login'}`].map((item, index)=>(
+              {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Schedule') :''}`, `${user ? ('Profile') :'Login'}`].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} classProps= "my-7 text-lg divide-y pt-2 z-1000" />
               ))}
               <button>{user ? ('Logout') :''}</button>
