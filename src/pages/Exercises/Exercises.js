@@ -24,7 +24,7 @@ function Exercises() {
   const [value, setValue] = useState('')
   const [date, setDate] = useState('')
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-  useAdd(user.id, addedData, date, user.token)
+  const [schedule,setSchedule] = useState(JSON.parse(localStorage.getItem('schedule')))
   
   const {loading, error, data, hasMore} = useInfiniteScroll(value, page)
   const observer = useRef()
@@ -38,7 +38,8 @@ function Exercises() {
     })
     if(node) observer.current.observe(node)
   }, [loading, hasMore])
-
+  useAdd(user.id, addedData, date, user.token, schedule._id)
+  
   return (
     <div className="bg-gray-800">
     <h1 className="mt-24 justify-center pt-3 text-white">Exercises</h1>
