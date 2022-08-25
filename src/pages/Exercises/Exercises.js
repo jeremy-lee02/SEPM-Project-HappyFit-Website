@@ -5,7 +5,9 @@ import '../../components/Skeleton/Skeleton.css'
 import Search from '../../components/Search'
 import useInfiniteScroll from '../../Hook/useInfiniteScroll'
 import useAdd from '../../Hook/useAdd'
-
+import './exercises.css'
+import {AiFillPlusCircle} from 'react-icons/ai'
+import SelectDay from '../../components/SelectDay'
 const Error = ({title, value}) =>{
   return (
     <p className='justify-center text-center pt-4 text-red'>{title} {value}</p>
@@ -20,7 +22,9 @@ function Exercises() {
   const [addedData, setAddedData] = useState([])
   //const [url, setUrl] = useState('https://happy-fit-api.herokuapp.com/exercises')
   const [value, setValue] = useState('')
-  useAdd(addedData)
+  const [date, setDate] = useState('')
+  const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  useAdd(addedData, date)
 
   const {loading, error, data, hasMore} = useInfiniteScroll(value, page)
   const observer = useRef()
@@ -90,7 +94,26 @@ function Exercises() {
                   <h3 className='font-bold inline-flex pt-1 pb-1'>Exercise Difficulty: </h3>
                   <span> {`Level ${item.difficulty}`}</span>
               </div>
-              <button className='bg-blue w-1/2 rounded-md hover:bg-blue-700' onClick={()=>setAddedData([...addedData, item])}>Add</button>
+              <div className='flex gap-5 justify-between w-full'>
+                {JSON.parse(localStorage.getItem('profile'))?
+                <>
+                <div className='mt-3'>
+                  <SelectDay value={date} onChange = {(e)=> setDate(e.target.value)} />
+                </div>
+                <div>
+                  <button className='w-fit cursor-pointer mt-3 mr-8' onClick={()=>{
+                    if (date === '') {
+                      alert('Please select date!')
+                    }else{
+                      setAddedData(item.name)
+                    }
+                  }}>
+                    <AiFillPlusCircle className='icon' />
+                  </button>
+                </div>
+                </>
+              :null}
+              </div>
               </div>
             </div>
           )

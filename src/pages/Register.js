@@ -78,7 +78,7 @@ function Register() {
           onChange={(e)=> setConfirmedPassword(e.target.value)}/>
         </div>
 
-        <div className='flex gap-4 py-2'>
+        <div className='flex flex-col lg:flex-row gap-5 py-2'>
           <div>
           <InputLogin 
           type={'text'} 
@@ -88,7 +88,6 @@ function Register() {
           </div>
 
           <div>
-
           <InputLogin 
           type={'text'} 
           name={'lastName'} 
