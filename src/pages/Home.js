@@ -16,11 +16,11 @@ function Home() {
         {/* Content 1 */}
         <div className='flex flex-col md:flex-row flex-auto pt-5 md:hover:drop-shadow-lg'>
           {/* Left  */}
-          <div className='flex md:flex-initial'>
-              <img src={require('../images/pic1.png')} alt='pic 1' className='pl-11 w-full'/>
+          <div className='flex md:flex-initial w-full'>
+              <img src={require('../images/pic1.png')} alt='pic 1' className='md:pl-5 w-5/6 pl-5'/>
           </div>
           {/* Right */}
-          <div className='flex w-full md:pl-14 text-left pt-5 items-center justify-center italic flex-col'>
+          <div className='flex w-full md:pl-2 text-left pt-5 items-center justify-center italic flex-col'>
             <p className='pb-3 text-xl'>
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             </p>
