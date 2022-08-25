@@ -25,7 +25,7 @@ function Exercises() {
   const [date, setDate] = useState('')
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   useAdd(user.id, addedData, date, user.token)
-
+  
   const {loading, error, data, hasMore} = useInfiniteScroll(value, page)
   const observer = useRef()
   const lastEle = useCallback(node =>{
