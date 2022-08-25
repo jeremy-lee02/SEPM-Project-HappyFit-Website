@@ -20,12 +20,13 @@ function Exercises() {
   const [showModal, setShowModal] = useState(false)
   const [modalData, setModalData] = useState([])
   const [addedData, setAddedData] = useState([])
+  const [schedule, setSchedule] = useState(JSON.parse(localStorage.getItem('schedule')))
   //const [url, setUrl] = useState('https://happy-fit-api.herokuapp.com/exercises')
   const [value, setValue] = useState('')
   const [date, setDate] = useState('')
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-  const [schedule,setSchedule] = useState(JSON.parse(localStorage.getItem('schedule')))
-  
+  useAdd(user.id, schedule._id, addedData, date, user.token)
+
   const {loading, error, data, hasMore} = useInfiniteScroll(value, page)
   const observer = useRef()
   const lastEle = useCallback(node =>{
@@ -38,8 +39,7 @@ function Exercises() {
     })
     if(node) observer.current.observe(node)
   }, [loading, hasMore])
-  useAdd(user.id, addedData, date, user.token, schedule._id)
-  
+
   return (
     <div className="bg-gray-800">
     <h1 className="mt-24 justify-center pt-3 text-white">Exercises</h1>
