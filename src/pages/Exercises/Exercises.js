@@ -20,12 +20,12 @@ function Exercises() {
   const [showModal, setShowModal] = useState(false)
   const [modalData, setModalData] = useState([])
   const [addedData, setAddedData] = useState([])
-  const [schedule, setSchedule] = useState(JSON.parse(localStorage.getItem('schedule')))
+  //const [schedule, setSchedule] = useState(JSON.parse(localStorage.getItem('schedule')))
   //const [url, setUrl] = useState('https://happy-fit-api.herokuapp.com/exercises')
   const [value, setValue] = useState('')
   const [date, setDate] = useState('')
-  const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-  useAdd(user.id, schedule._id, addedData, date, user.token)
+  //const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  useAdd(addedData, date)
 
   const {loading, error, data, hasMore} = useInfiniteScroll(value, page)
   const observer = useRef()
@@ -61,7 +61,7 @@ function Exercises() {
               <div className="relative">
                 {item.videoURL === ''? 
                 <img src={require('../../images/giphy.gif')} className='w-full object-cover rounded-lg w-1/3' alt= {item.name} />
-                :<iframe src= {item.videoURL} className='w-full object-cover rounded-lg' title= {item.name}/ >
+                :<img src={item.imgUrl} className='w-full object-cover rounded-lg' title= {item.name}/ >
                   }
               </div>
                <h2 className="text-2xl mt-3 underline">{item.name}</h2>
@@ -85,7 +85,7 @@ function Exercises() {
               <div className="relative">
                 {item.videoURL === ''? 
                 <img src={require('../../images/giphy.gif')} className='w-full object-cover rounded-lg w-1/3' alt= {item.name} />
-                :<iframe src= {item.videoURL} className='w-full object-cover rounded-lg' title= {item.name}/ >
+                :<img src= {item.imgUrl} className='w-full object-cover rounded-lg' title= {item.name}/ >
                   }
               </div>
                <h2 className="text-2xl mt-3 underline">{item.name}</h2>
@@ -107,6 +107,7 @@ function Exercises() {
                       alert('Please select date!')
                     }else{
                       setAddedData(item)
+                      alert('Add exercise successfull!')
                     }
                   }}>
                     <AiFillPlusCircle className='icon' />

@@ -11,9 +11,6 @@ const Error = ({title, value}) =>{
 }
 
 function Nutritions() {
-  // const capitalLetter = (item) =>{
-  //   return item.charAt(0).toUpperCase() + item.slice(1)
-  // }
   const [showModal, setShowModal] = useState(false)
   const [modalData, setModalData] = useState([])
   const [loading, setLoading] = useState(true)

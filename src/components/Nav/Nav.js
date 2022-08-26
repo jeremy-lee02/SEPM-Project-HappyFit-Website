@@ -43,7 +43,7 @@ function Nav() {
           </Link>
         </div>
         <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial text-base pl-72'>
-                  {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Schedule') :''}`,`${user ? ('Profile') :'Login'}`].map((item, index)=>(
+                  {['Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Schedule') :'Login'}`,`${user ? ('Profile') :''}`].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}
                   <button onClick={handleLogout}>{user ? ('Logout') :''}</button>
