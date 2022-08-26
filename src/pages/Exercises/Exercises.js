@@ -20,11 +20,12 @@ function Exercises() {
   const [showModal, setShowModal] = useState(false)
   const [modalData, setModalData] = useState([])
   const [addedData, setAddedData] = useState([])
+  const [schedule, setSchedule] = useState(JSON.parse(localStorage.getItem('schedule')))
   //const [url, setUrl] = useState('https://happy-fit-api.herokuapp.com/exercises')
   const [value, setValue] = useState('')
   const [date, setDate] = useState('')
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-  useAdd(addedData, date)
+  useAdd(user.id, schedule._id, addedData, date, user.token)
 
   const {loading, error, data, hasMore} = useInfiniteScroll(value, page)
   const observer = useRef()
@@ -105,7 +106,7 @@ function Exercises() {
                     if (date === '') {
                       alert('Please select date!')
                     }else{
-                      setAddedData(item.name)
+                      setAddedData(item)
                     }
                   }}>
                     <AiFillPlusCircle className='icon' />

@@ -40,9 +40,9 @@ const handleLogin = async (e) =>{
       lastname: data.currentUser.lastname,
       imageUrl: data.currentUser.imageUrl
     }
-    console.log(displayInfo)
     localStorage.setItem('profile',JSON.stringify(displayInfo))
-;}
+    localStorage.setItem('schedule',JSON.stringify(data.schedule))
+  }
     let path = '/Home'
     navigate(path)
     }
