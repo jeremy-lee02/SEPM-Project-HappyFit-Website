@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
+import useDelete from '../../Hook/useDelete'
 
-function DeleteButton() {
+function DeleteButton({data, day}) {
   return (
-    <div>DeleteButton</div>
+    <>
+      <button className='w-full hover:bg-blue-700 cursor-pointer mt-3 bg-blue text-white rounded-lg'>Delete Exercise</button>
+    </>
   )
 }
 

@@ -1,20 +1,24 @@
 import React from 'react'
+import DeleteButton from './DeleteButton'
 
-function Cards({onClick,name,description,difficulty,img ,imgClass}) {
+function Cards({onClick,name,description,difficulty,img ,imgClass, item, data, day}) {
   return (
-    <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out" onClick={onClick}>
-     <div className="card-top">
-      <div className="relative">
-       <img src={img} layout="fill" className= {imgClass} alt={'item.name'}/>
-       </div>
-        <h2 className="text-2xl mt-3 underline">{name}</h2>
-        <h3 className='font-bold inline-flex pb-1 pt-1'>Description:</h3>
-        <span> {description}</span>
-        <br />
-        <h3 className='font-bold inline-flex pt-1 pb-1'>Exercise Difficulty: </h3>
-        <span> {difficulty}</span>
+    <>
+      <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out" >
+        <div className="card-top" onClick={onClick}>
+          <div className="relative">
+          <img src={img} layout="fill" className= {imgClass} alt={'item.name'}/>
+          </div>
+            <h2 className="text-2xl mt-3 underline">{name}</h2>
+            <h3 className='font-bold inline-flex pb-1 pt-1'>Description:</h3>
+            <span> {description}</span>
+            <br />
+            <h3 className='font-bold inline-flex pt-1 pb-1'>Exercise Difficulty: </h3>
+            <span> {difficulty}</span>
+        </div>
+        <DeleteButton data = {data} day = {day}/>
       </div>
-    </div>
+    </>
   )
 }
 

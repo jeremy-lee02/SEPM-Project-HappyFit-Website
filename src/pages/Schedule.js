@@ -5,6 +5,7 @@ import axios from 'axios';
 import DeleteButton from '../components/Schedule/DeleteButton';
 import SelectDate from '../components/Schedule/SelectDate';
 import Cards from '../components/Schedule/Cards';
+import Modal from '../components/Modal/Modal'
 
 
 const DATE = ['Monday','Tuesday','Wednesday','Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -27,17 +28,11 @@ function Schedule() {
     const [sunday,setSunday]=useState(schedule.sunday)
     const [value,setValue] = useState('')
     const [exercises, setExercises] = useState([])
+    const [showModal, setShowModal] = useState(false)
+    const [modalData, setModalData] = useState([])
 
-    const SCHEDULE = [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
     const [message,setMessage] = useState("");
     const url = "https://happy-fit-api.herokuapp.com/schedule"
-    
-    // useEffect(()=>{
-    //   console.log(schedule)
-    //   console.log(Object.keys(schedule).splice(2,7))
-    //   console.log(SCHEDULE)
-    // },[refreshPage])
-
         
   return (
     
@@ -72,7 +67,7 @@ function Schedule() {
               case 'Sunday': 
                 setExercises(sunday)
                 break;
-              default: console.log('exercises')
+              default: break;
             }
             }}/>
         </div>
@@ -86,9 +81,17 @@ function Schedule() {
               difficulty={item.difficulty} 
               key={id+item._id} 
               img = {item.imgUrl? item.imgUrl: require('../images/giphy.gif')}
-              imgClass= {item.imgUrl? 'w-full': 'w-1/2'}/>
+              imgClass= {item.imgUrl? 'w-full': 'w-1/2'}
+              onClick = {() =>{
+                setShowModal(prev => !prev)
+                setModalData(item)
+              }}
+              data = {item}
+              day = {value}/>
+              
             ))}
           </> : null}
+          <Modal showModal={showModal} setShowModal = {setShowModal} img = {modalData.videoURL === ''? require('../images/giphy.gif'): modalData.videoURL} title = {modalData.name} tech = {modalData.tip} title1={'Exercise Techniques:'} />
         </div>
       </div>
       ) : <div className=' items-center justify-center'>
