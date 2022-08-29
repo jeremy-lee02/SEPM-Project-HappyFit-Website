@@ -6,6 +6,7 @@ import DeleteButton from '../components/Schedule/DeleteButton';
 import SelectDate from '../components/Schedule/SelectDate';
 import Cards from '../components/Schedule/Cards';
 import Modal from '../components/Modal/Modal'
+import useDelete from '../Hook/useDelete';
 
 
 const DATE = ['Monday','Tuesday','Wednesday','Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -14,9 +15,9 @@ function Schedule() {
   const capitalLetter = (item) =>{
     return item.charAt(0).toUpperCase() + item.slice(1)
   }
-    const refreshPage = ()=>{
-        window.location.reload();
-     }
+  const refreshPage = ()=>{
+    window.location.reload();
+  }
     const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const [schedule,setSchedule]= useState(JSON.parse(localStorage.getItem('schedule')))
     const [monday,setMonday]=useState(schedule.monday)
@@ -30,9 +31,9 @@ function Schedule() {
     const [exercises, setExercises] = useState([])
     const [showModal, setShowModal] = useState(false)
     const [modalData, setModalData] = useState([])
-
-    const [message,setMessage] = useState("");
-    const url = "https://happy-fit-api.herokuapp.com/schedule"
+    const [deleteData, setDeleteData] = useState([])
+    const [date , setDate] = useState('')
+    useDelete(deleteData, date)
         
   return (
     
@@ -86,8 +87,14 @@ function Schedule() {
                 setShowModal(prev => !prev)
                 setModalData(item)
               }}
-              data = {item}
-              day = {value}/>
+              handleClick = {()=>{
+                setDate(value)
+                setDeleteData(item)
+                alert("Delete Successfull")
+                setTimeout(()=>{
+                  refreshPage()
+                }, 3000)
+              }}/>
               
             ))}
           </> : null}

@@ -1,7 +1,7 @@
 import React from 'react'
 import DeleteButton from './DeleteButton'
 
-function Cards({onClick,name,description,difficulty,img ,imgClass, item, data, day}) {
+function Cards({onClick,name,description,difficulty,img ,imgClass, handleClick}) {
   return (
     <>
       <div className="cursor-pointer hover:scale-105 tranform transition duration-300 ease-out" >
@@ -16,7 +16,7 @@ function Cards({onClick,name,description,difficulty,img ,imgClass, item, data, d
             <h3 className='font-bold inline-flex pt-1 pb-1'>Exercise Difficulty: </h3>
             <span> {difficulty}</span>
         </div>
-        <DeleteButton data = {data} day = {day}/>
+        <DeleteButton handleClick= {handleClick}/>
       </div>
     </>
   )
