@@ -1,15 +1,12 @@
 import React, {useEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
 import {useState} from 'react';
-import axios from 'axios';
-import DeleteButton from '../components/Schedule/DeleteButton';
 import SelectDate from '../components/Schedule/SelectDate';
 import Cards from '../components/Schedule/Cards';
 import Modal from '../components/Modal/Modal'
 import useDelete from '../Hook/useDelete';
 
 
-const DATE = ['Monday','Tuesday','Wednesday','Thursday', 'Friday', 'Saturday', 'Sunday']
+
 
 function Schedule() {
   const capitalLetter = (item) =>{

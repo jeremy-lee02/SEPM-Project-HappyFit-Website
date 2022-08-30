@@ -8,9 +8,16 @@ import useAdd from '../../Hook/useAdd'
 import './exercises.css'
 import {AiFillPlusCircle} from 'react-icons/ai'
 import SelectDay from '../../components/SelectDay'
-const Error = ({title, value}) =>{
+const Error = ({title, value, error}) =>{
   return (
-    <p className='justify-center text-center pt-4 text-red'>{title} {value}</p>
+    <>
+    <div className='h-screen'>
+
+      <p className='justify-center text-center pt-4 text-red'>{title} {value}</p>
+      <p className='justify-center text-center pt-4 text-red'>{error}</p>
+    </div>
+    </>
+
   )
 }
 
@@ -48,7 +55,7 @@ function Exercises() {
             setPage(1)
           }
     }}/>
-    {data.length === 0? <Error title={value ===''?'':'No Exercises with '} value={value} /> : null}
+    {data.length === 0? <Error title={value ===''?'':'No Exercises with '} value={value} error={error} /> : null}
     <div className= {`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-10 text-white gap-10`}>
       {data.map((item, index) => {
         if (data.length === index + 1) {

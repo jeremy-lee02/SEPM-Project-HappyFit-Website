@@ -61,7 +61,8 @@ function Nutritions() {
       }}>
        <div className="card-top">
         <div className="relative">
-         <img src={item.imageUrl?item.imageUrl:require('../images/giphy.gif')} layout="fill" className='w-1/2' alt={item.name}/>
+          {item.imageUrl?<img src={item.imageUrl} layout="fill" className='w-full' alt={item.name}/>
+          :<img src={require('../images/giphy.gif')} layout="fill" className='w-1/2' alt={item.name}/>}
          </div>
           <h2 className="text-2xl mt-3 underline">{item.name}</h2>
           <h3 className='font-bold inline-flex pb-1 pt-1'>Description: </h3>
@@ -76,7 +77,7 @@ function Nutritions() {
         <Modal 
         showModal={showModal} 
         setShowModal = {setShowModal} 
-        img = {require('../images/giphy.gif')} 
+        img1 = {modalData.imageUrl?modalData.imageUrl:require('../images/giphy.gif')} 
         title = {modalData.name}
         title1 = {'Ingredients: '} 
         tech = {modalData.ingredient}

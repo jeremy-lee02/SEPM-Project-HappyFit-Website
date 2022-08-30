@@ -2,7 +2,7 @@ import React, {useCallback,useEffect,useRef} from 'react'
 import './Modal.css'
 import { AiOutlineClose } from 'react-icons/ai';
 
-function Modal({showModal, setShowModal, img, title,tech, title1, title2, instruct}) {
+function Modal({showModal, setShowModal, img, title,tech, title1, title2, instruct, img1}) {
     const modalRef = useRef()
     const closeModal = () => {
             setShowModal(false)
@@ -24,7 +24,9 @@ function Modal({showModal, setShowModal, img, title,tech, title1, title2, instru
             <div className='w-full text-white z-1000 fixed modal md:flex'>
                 <div className='close pl-10 pt-6' onClick={closeModal}>&times;</div>
                 <div className='w-full pl-10 pt-10'>
-                    <iframe src= {img} alt={title} className = 'flex justify-between pb-2 rounded-lg lg:h-80' width="90%" height="350"/>
+                    {img?<iframe src= {img} alt={title} className = 'flex justify-between pb-2 rounded-lg lg:h-80' width="90%" height="350"/>:
+                    <img src = {img1} alt = {title} className= "w-1/2 h-3/4" layout="fill"></img>
+                    }
                 </div>
                 <div className='w-full text-blue pt-8'>
                     <h2>{title}</h2>
