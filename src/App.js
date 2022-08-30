@@ -13,12 +13,14 @@ import ScrollToTop from "./Hook/ScrollToTop";
 import BackToTop from "./components/BackToTop";
 import Profile from './pages/Profile'
 import Schedule from './pages/Schedule'
+import Home2 from "./pages/Home2";
 function App() {
   return (
     <div className='min-h-screen bg-gray-800'>
       <div>
         <Router>
           <ScrollToTop>
+          <Nav />
           <Routes>             
             <Route exact path='/' element= {<Home />} />
             <Route exact path='/Home' element= {<Home />} />
@@ -32,7 +34,6 @@ function App() {
             <Route exact path='/Schedule' element= {<Schedule/>} />
           </Routes>
           </ScrollToTop>
-          <Nav />
           <Footer />
           <BackToTop />
         </Router>
