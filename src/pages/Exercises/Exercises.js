@@ -68,6 +68,27 @@ function Exercises() {
                   <h3 className='font-bold inline-flex pt-1 pb-1'>Exercise Difficulty: </h3>
                   <span> {`Level ${item.difficulty}`}</span>
               </div>
+              <div className='flex gap-5 justify-between w-full'>
+                {JSON.parse(localStorage.getItem('profile'))?
+                <>
+                <div className='mt-3'>
+                  <SelectDay value={date} onChange = {(e)=> setDate(e.target.value)} />
+                </div>
+                <div>
+                  <button className='w-fit cursor-pointer mt-3 mr-8' onClick={()=>{
+                    if (date === '') {
+                      alert('Please select date!')
+                    }else{
+                      setAddedData(item)
+                      alert('Add exercise successfull!')
+                    }
+                  }}>
+                    <AiFillPlusCircle className='icon' />
+                  </button>
+                </div>
+                </>
+              :null}
+              </div>
             </div>
           )
         }else{
