@@ -1,7 +1,6 @@
 import React from 'react'
 import {useNavigate, Link} from 'react-router-dom'
 import { useState} from 'react'
-import {Menu} from '@headlessui/react'
 
 const NavBarItems = ({title, classProps}) =>{
  
@@ -12,7 +11,6 @@ const NavBarItems = ({title, classProps}) =>{
   )
 }
 
-  
 function DropdownMenu({onClick}) {
 
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
