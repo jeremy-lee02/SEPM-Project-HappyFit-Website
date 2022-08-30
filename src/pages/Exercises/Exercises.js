@@ -11,8 +11,7 @@ import SelectDay from '../../components/SelectDay'
 const Error = ({title, value, error}) =>{
   return (
     <>
-    <div className='h-screen'>
-
+    <div className=''>
       <p className='justify-center text-center pt-4 text-red'>{title} {value}</p>
       <p className='justify-center text-center pt-4 text-red'>{error}</p>
     </div>
