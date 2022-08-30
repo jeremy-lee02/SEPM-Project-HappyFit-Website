@@ -24,7 +24,7 @@ function Nav() {
   const location = useLocation();
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
-  const [isLog,setIslog] = useState(false)
+  const [open,setOpen] = useState(false)
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const handleLogout=()=>{
     localStorage.clear();
@@ -48,8 +48,23 @@ function Nav() {
                   {['Exercises', 'Nutritions','Calculator', 'About Us' ].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}
-                 {user ? <ProfileMenu/> :<NavBarItems title={"Login"} />}
                
+                 {user ? 
+                 <div className="flex flex-col">
+                    <ProfileMenu onClick={()=>setOpen(prev=>!prev)}/>
+                    {open?
+                    <div className = 'fixed w-24 h-fit mt-14 shadow-2xl list-none flex flex-col justify-start items-start gap-2 pt-2 rounded-md white-glassmorphism'>
+                      {['Profile', 'Schedule'].map((item, index)=>(
+                      <NavBarItems key = {item+index} title={item} />
+                      
+                  ))}
+                    <button className = ' text-white mx-3 cursor-pointer hover:text-blue drop-shadow-lg' onClick={handleLogout}>{user ? ('Logout') :''}</button>
+                    </div>: null}
+                 </div>
+                 
+
+                 
+                 :<NavBarItems title={"Login"} />}
         </ul>
         {/* Create responsive nav bar */}
         <div className='flex-relative relative'>
