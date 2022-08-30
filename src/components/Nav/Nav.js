@@ -4,6 +4,7 @@ import { useState,useEffect } from 'react'
 import {useNavigate, Link, useLocation } from 'react-router-dom'
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
+import ProfileMenu from './ProfileMenu';
 
 
 
@@ -29,6 +30,7 @@ function Nav() {
     localStorage.clear();
     let path = '/Home'
     navigate(path)
+    alert('Logged out successfull')
   }
   useEffect(()=>{
     setUser(JSON.parse(localStorage.getItem('profile')))
@@ -43,10 +45,11 @@ function Nav() {
           </Link>
         </div>
         <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial text-base pl-72'>
-                  {['Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Schedule') :'Login'}`,`${user ? ('Profile') :''}`].map((item, index)=>(
+                  {['Exercises', 'Nutritions','Calculator', 'About Us' ].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}
-                  <button onClick={handleLogout}>{user ? ('Logout') :''}</button>
+                 {user ? <ProfileMenu/> :<NavBarItems title={"Login"} />}
+               
         </ul>
         {/* Create responsive nav bar */}
         <div className='flex-relative relative'>
@@ -59,10 +62,10 @@ function Nav() {
               <li className='text-xl w-full my-2 pt-3'>
                 <AiOutlineClose fontSize={28} className ="text-white cursor-pointer" onClick={()=>setToggle(false)} />
               </li>
-              {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Schedule') :''}`, `${user ? ('Profile') :'Login'}`].map((item, index)=>(
-                      <NavBarItems key = {item+index} title={item} classProps= "my-7 text-lg divide-y pt-2 z-1000" />
+              {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Schedule') :'Login'}`, `${user ? ('Profile') :''}`].map((item, index)=>(
+                      <NavBarItems key = {item+index} title={item} classProps= "my-5 text-lg divide-y pt-2 z-1000" />
               ))}
-              <button>{user ? ('Logout') :''}</button>
+             <button className = 'text-xl w-full pl-72 my-5 text-white mx-3 cursor-pointer hover:text-blue drop-shadow-lg' onClick={handleLogout}>{user ? ('Logout') :''}</button>
             </ul>
           )}
 
