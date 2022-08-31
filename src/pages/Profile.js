@@ -6,6 +6,7 @@ import ProfileField from '../components/Profile/ProfileField';
 import UpdateButton from '../components/Profile/UpdateButton';
 
 function Register() {
+    const navigate = useNavigate();
     const refreshPage = ()=>{
         window.location.reload();
      }
@@ -51,7 +52,14 @@ function Register() {
           {headers:{
             Authorization: `Bearer ${user.token}`
           }})
-          const newData ={
+          if (data === "TokenExpiredError"){
+            alert("The token is expired! please relog to continue!")
+            localStorage.clear();
+            let path = '/Home'
+            navigate(path)
+    
+          } else {
+            const newData ={
             id: id,
             token: token,
             email: email,
@@ -61,7 +69,8 @@ function Register() {
             imageUrl: imageUrl
           }
           localStorage.setItem('profile', JSON.stringify(newData))
-          console.log(JSON.parse(localStorage.getItem('profile')))
+          console.log(JSON.parse(localStorage.getItem('profile')))}
+          
           // localStorage.clear();
           // localStorage.setItem('profile', user);
           // refreshPage();

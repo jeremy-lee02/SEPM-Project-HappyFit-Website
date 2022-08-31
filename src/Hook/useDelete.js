@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 export default function useDelete(deleted, date) {
+    const navigate = useNavigate();
     const deleteExercise = async() =>{
         try {
             const user = JSON.parse(localStorage.getItem('profile'))
@@ -18,9 +20,15 @@ export default function useDelete(deleted, date) {
                 day:date}}
                  
                 )
-            console.log(data)
-            localStorage.removeItem('schedule')
-            localStorage.setItem('schedule',JSON.stringify(data))
+            if (data === "TokenExpiredError"){
+        alert("The token is expired! please relog to continue!")
+        localStorage.clear();
+        let path = '/Home'
+        navigate(path)
+
+            } else 
+            {localStorage.removeItem('schedule')
+            localStorage.setItem('schedule',JSON.stringify(data))}
         }
         } catch (error) {
             console.log(error)
