@@ -13,6 +13,7 @@ import ScrollToTop from "./Hook/ScrollToTop";
 import BackToTop from "./components/BackToTop";
 import Profile from './pages/Profile'
 import Schedule from './pages/Schedule'
+import BeginnerWorkout from './pages/BeginnerWorkout'
 import Home2 from "./pages/Home2";
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route exact path='/Login' element= {<Login />} />
             <Route exact path='/Profile' element= {<Profile/>} />   
             <Route exact path='/Schedule' element= {<Schedule/>} />
+            <Route exact path='/Beginner%20Workout' element= {<BeginnerWorkout/>} />
           </Routes>
           </ScrollToTop>
           <Footer />

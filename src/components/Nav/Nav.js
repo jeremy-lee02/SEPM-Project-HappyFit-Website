@@ -53,8 +53,8 @@ function Nav() {
                  <div className="flex flex-col">
                     <ProfileMenu onClick={()=>setOpen(prev=>!prev)}/>
                     {open?
-                    <div className = 'fixed w-24 h-fit mt-14 shadow-2xl list-none flex flex-col justify-start items-start gap-2 pt-2 rounded-md white-glassmorphism'>
-                      {['Profile', 'Schedule'].map((item, index)=>(
+                    <div className = 'fixed w-45 h-fit mt-14 shadow-2xl list-none flex flex-col justify-start items-start gap-2 pt-2 rounded-md white-glassmorphism'>
+                      {['Profile', 'Schedule','Beginner Workout'].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                       
                   ))}

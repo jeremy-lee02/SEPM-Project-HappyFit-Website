@@ -42,6 +42,7 @@ const handleLogin = async (e) =>{
     }
     localStorage.setItem('profile',JSON.stringify(displayInfo))
     localStorage.setItem('schedule',JSON.stringify(data.schedule))
+    localStorage.setItem('defaultSchedule',JSON.stringify(data.beginnerWorkout))
   }
     let path = '/Home'
     navigate(path)
