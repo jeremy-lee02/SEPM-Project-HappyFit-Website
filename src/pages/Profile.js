@@ -24,7 +24,7 @@ function Register() {
     const url = "https://happy-fit-api.herokuapp.com/auth/user"
 
     const handleEdit =()=>{
-        console.log(user)
+
         setIsEdit((prevIsEdit)=> !prevIsEdit);
         if (isEdit){
             setMessage('Change your personal details.')
@@ -52,6 +52,7 @@ function Register() {
           {headers:{
             Authorization: `Bearer ${user.token}`
           }})
+          
           if (data === "TokenExpiredError"){
             alert("The token is expired! please relog to continue!")
             localStorage.clear();
@@ -69,7 +70,9 @@ function Register() {
             imageUrl: imageUrl
           }
           localStorage.setItem('profile', JSON.stringify(newData))
-          console.log(JSON.parse(localStorage.getItem('profile')))}
+          alert("Successfully update profile info!")
+          refreshPage();
+          }
           
           // localStorage.clear();
           // localStorage.setItem('profile', user);
@@ -88,7 +91,10 @@ function Register() {
         <div className='mt-24 text-white'>
         <h1 className='justify-center pt-5'>Profile</h1>
         </div>
-        <UpdateButton text={isEdit ? ("Edit profile") : "Cancel"} onClick={handleEdit}/>
+        
+       
+
+        
         <form action='' className='max-w-[550px] w-full mx-auto p-20 px-8 rounded-lg  bg-gray-900 mt-10' onSubmit={handleSubmit}>
         <div className='text-white flex justify-center'>
         
@@ -97,7 +103,7 @@ function Register() {
         alt="Profile picture"
         /></div>
         
-        <div className='text-red'>{message && <h3>{message}</h3>}</div>
+        <div className='text-red text-center'>{message && <h3>{message}</h3>}</div>
         <div className='flex flex-col py-2'>
         <div className='text-white'>Email:</div>
           <ProfileField
@@ -105,6 +111,16 @@ function Register() {
           type = "email"
           value={email}
           disabled = {true}
+          />
+        </div>
+        <div className='flex flex-col py-2'>
+        <div className='text-white'>Password:</div>
+          <ProfileField
+          name={password}
+          type = "password"
+          value={password}
+          disabled = {isEdit}
+          onChange={(e)=>setPassword(e.target.value)}
           />
         </div>
         <div className='flex flex-col py-2'>
@@ -138,11 +154,16 @@ function Register() {
           />
         </div>
         <div>
-            <UpdateButton text={"Save changes"} type={"submit"}/>
+            <UpdateButton text={"Save changes"} type={"submit"} disabled={isEdit? (true): false}/>
         </div>
 
             
         </form>
+        <div className="flex justify-center">
+        <button className= {`w-1/6 text-center py-2.5 rounded bg-blue text-white hover:bg-blue-700 focus:outline-none my-3`}  onClick={handleEdit} >
+        {isEdit ? ("Edit profile") : "Cancel"}
+        </button>
+        </div>
         
       </div>) : <div className=' items-center justify-center'>
         <h1 className='justify-center pt-5'>User does not exist!</h1></div>}
