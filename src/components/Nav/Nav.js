@@ -9,7 +9,6 @@ import ProfileMenu from './ProfileMenu';
 
 
 const NavBarItems = ({title, classProps}) =>{
-
   return(
       <li className={`text-white mx-3 cursor-pointer ${classProps} hover:text-blue drop-shadow-lg`}>
           <Link to={`/${title}`} className="hover:drop-shadow-lg">{title}</Link>
@@ -61,9 +60,6 @@ function Nav() {
                     <button className = ' text-white mx-3 cursor-pointer hover:text-blue drop-shadow-lg' onClick={handleLogout}>{user ? ('Logout') :''}</button>
                     </div>: null}
                  </div>
-                 
-
-                 
                  :<NavBarItems title={"Login"} />}
         </ul>
         {/* Create responsive nav bar */}
@@ -78,12 +74,14 @@ function Nav() {
                 <AiOutlineClose fontSize={28} className ="text-white cursor-pointer" onClick={()=>setToggle(false)} />
               </li>
               {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Schedule') :'Login'}`, `${user ? ('Profile') :''}`].map((item, index)=>(
-                      <NavBarItems key = {item+index} title={item} classProps= "my-5 text-lg divide-y pt-2 z-1000" />
+                      <NavBarItems key = {item+index} title={item} classProps= "my-5 text-lg divide-y pt-2" />
               ))}
-             <button className = 'text-xl w-full pl-72 my-5 text-white mx-3 cursor-pointer hover:text-blue drop-shadow-lg' onClick={handleLogout}>{user ? ('Logout') :''}</button>
+              {user? 
+              <li className={`text-white mx-3 cursor-pointer my-5 text-lg pt-2 hover:text-blue drop-shadow-lg`}>
+                <p className="hover:drop-shadow-lg" onClick={handleLogout}>Logout</p>
+              </li>:null}
             </ul>
           )}
-
         </div>
       </div>
     </div>
