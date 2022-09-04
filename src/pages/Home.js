@@ -21,19 +21,21 @@ function Home() {
           </div>
           {/* Right */}
           <div className='flex w-full md:pl-2 text-left pt-5 items-center justify-center italic flex-col'>
-            <p className='pb-3 text-xl'>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            <p className='pb-3 text-xl inline-flex'>
+              “Your health account, your bank account, they’re the same thing. The more you put in, the more you can take out.”
             </p>
-            <button className='bg-blue hover:bg-blue-700 hover:drop-shadow-lg focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-md' onClick={changeRoute}>Start your workout!</button>
+            <span>-Jack LaLanne</span>
+            <button className='bg-blue hover:bg-blue-700 hover:drop-shadow-lg mt-2 focus:ring focus:ring-violet-300 text-white font-bold py-2 px-4 rounded-md' onClick={changeRoute}>Start your workout!</button>
           </div>
         </div>
         {/* Content 2 */}
         <div className='pt-10 flex flex-col-reverse md:flex-row flex-auto pb-8 flex-row-reverse md:hover:drop-shadow-lg rounded-md'>
           {/* Left */}
           <div className='flex w-full md:pl-11 text-left pt-5 item-center justify-center italic flex-col'>
-          <p className='pb-3 text-xl'>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          <p className='pb-3 text-xl inline-flex'>
+          “Diet is the essential key to all successful healing. Without a proper balanced diet, the effectiveness of herbal treatment is very limited.”
             </p>
+            <span>–Michael Tierra</span>
           </div>
           {/* Right */}
           <div className='flex md:flex-initial'>

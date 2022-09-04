@@ -14,7 +14,6 @@ import BackToTop from "./components/BackToTop";
 import Profile from './pages/Profile'
 import Schedule from './pages/Schedule'
 import BeginnerWorkout from './pages/BeginnerWorkout'
-import Home2 from "./pages/Home2";
 function App() {
   return (
     <div className='min-h-screen bg-gray-800'>
