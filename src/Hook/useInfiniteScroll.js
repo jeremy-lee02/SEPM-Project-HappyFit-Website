@@ -30,7 +30,9 @@ export default function useInfiniteScroll(value, pageNumber) {
                         noDuplicate.push(element)
                     }
                 });
-                setData([...data, ...noDuplicate])
+                setData((prev) =>{
+                    return [...new Set([...prev,...noDuplicate])]
+                })
             }
             setHasMore(res.data.length > 0)
             setLoading(false)

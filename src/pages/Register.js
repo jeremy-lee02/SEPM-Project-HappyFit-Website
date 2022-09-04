@@ -33,7 +33,6 @@ function Register() {
         )
 
         if (data) {
-        console.log(data)
         setMessage("Registered successfully!")
         let path = '/Login'
         navigate(path)

@@ -23,7 +23,7 @@ function Login() {
 const handleLogin = async (e) =>{
   e.preventDefault();
   try{
-    console.log(email, password)
+
     const {data} = await axios.post(
       "https://happy-fit-api.herokuapp.com/auth/login",
       {email,password}
@@ -42,6 +42,7 @@ const handleLogin = async (e) =>{
     }
     localStorage.setItem('profile',JSON.stringify(displayInfo))
     localStorage.setItem('schedule',JSON.stringify(data.schedule))
+    localStorage.setItem('defaultSchedule',JSON.stringify(data.beginnerWorkout))
   }
     let path = '/Home'
     navigate(path)

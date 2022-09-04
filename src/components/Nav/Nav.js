@@ -4,11 +4,12 @@ import { useState,useEffect } from 'react'
 import {useNavigate, Link, useLocation } from 'react-router-dom'
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
+import ProfileMenu from './ProfileMenu';
 
 
 
 const NavBarItems = ({title, classProps}) =>{
- 
+
   return(
       <li className={`text-white mx-3 cursor-pointer ${classProps} hover:text-blue drop-shadow-lg`}>
           <Link to={`/${title}`} className="hover:drop-shadow-lg">{title}</Link>
@@ -23,12 +24,13 @@ function Nav() {
   const location = useLocation();
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
-  const [isLog,setIslog] = useState(false)
+  const [open,setOpen] = useState(false)
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const handleLogout=()=>{
     localStorage.clear();
     let path = '/Home'
     navigate(path)
+    alert('Logged out successfull')
   }
   useEffect(()=>{
     setUser(JSON.parse(localStorage.getItem('profile')))
@@ -36,17 +38,33 @@ function Nav() {
   return (
     <div className='relative'>
       {/* Create a navigation bar */}
-      <div className='bg w-full flex md:justify-center justify-between items-center p-1 h-24 navBar'>
-        <div className='md:flex flex-initial justify-center items-center'>
+      <div className='bg w-full flex md:justify-center justify-between items-center p-1 h-24 navBar z-1000 '>
+        <div className='md:flex  justify-center items-center'>
           <Link layout="fill"  to='/Home'><img src={require('../../images/logo.png' )}
           className ='cursor-pointer width' alt='logo' />
           </Link>
         </div>
-        <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial text-base pl-72'>
-                  {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Schedule') :''}`,`${user ? ('Profile') :'Login'}`].map((item, index)=>(
+        <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial text-base pl-72 z-1000'>
+                  {['Exercises', 'Nutritions','Calculator', 'About Us' ].map((item, index)=>(
                       <NavBarItems key = {item+index} title={item} />
                   ))}
-                  <button onClick={handleLogout}>{user ? ('Logout') :''}</button>
+               
+                 {user ? 
+                 <div className="flex flex-col">
+                    <ProfileMenu onClick={()=>setOpen(prev=>!prev)}/>
+                    {open?
+                    <div className = 'fixed w-45 h-fit mt-14 shadow-2xl list-none flex flex-col justify-start items-start gap-2 pt-2 rounded-md white-glassmorphism'>
+                      {['Profile', 'Schedule','Beginner Workout'].map((item, index)=>(
+                      <NavBarItems key = {item+index} title={item} />
+                      
+                  ))}
+                    <button className = ' text-white mx-3 cursor-pointer hover:text-blue drop-shadow-lg' onClick={handleLogout}>{user ? ('Logout') :''}</button>
+                    </div>: null}
+                 </div>
+                 
+
+                 
+                 :<NavBarItems title={"Login"} />}
         </ul>
         {/* Create responsive nav bar */}
         <div className='flex-relative relative'>
@@ -59,10 +77,10 @@ function Nav() {
               <li className='text-xl w-full my-2 pt-3'>
                 <AiOutlineClose fontSize={28} className ="text-white cursor-pointer" onClick={()=>setToggle(false)} />
               </li>
-              {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Schedule') :''}`, `${user ? ('Profile') :'Login'}`].map((item, index)=>(
-                      <NavBarItems key = {item+index} title={item} classProps= "my-7 text-lg divide-y pt-2 z-1000" />
+              {['Home' , 'Exercises', 'Nutritions','Calculator', 'About Us',`${user ? ('Schedule') :'Login'}`, `${user ? ('Profile') :''}`].map((item, index)=>(
+                      <NavBarItems key = {item+index} title={item} classProps= "my-5 text-lg divide-y pt-2 z-1000" />
               ))}
-              <button>{user ? ('Logout') :''}</button>
+             <button className = 'text-xl w-full pl-72 my-5 text-white mx-3 cursor-pointer hover:text-blue drop-shadow-lg' onClick={handleLogout}>{user ? ('Logout') :''}</button>
             </ul>
           )}
 

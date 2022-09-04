@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react'
 import {useState} from 'react';
 import SelectDate from '../components/Schedule/SelectDate';
-import Cards from '../components/Schedule/Cards';
+import DefaultCards from '../components/Schedule/DefaultCards';
 import Modal from '../components/Modal/Modal'
 import useDelete from '../Hook/useDelete';
 
 
 
 
-function Schedule() {
+function BeginnerWorkout() {
   const capitalLetter = (item) =>{
     return item.charAt(0).toUpperCase() + item.slice(1)
   }
@@ -16,7 +16,7 @@ function Schedule() {
     window.location.reload();
   }
     const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-    const [schedule,setSchedule]= useState(JSON.parse(localStorage.getItem('schedule')))
+    const [schedule,setSchedule]= useState(JSON.parse(localStorage.getItem('defaultSchedule')))
     const [monday,setMonday]=useState(schedule.monday)
     const [tuesday,setTuesday]=useState(schedule.tuesday)
     const [wednesday,setWednesday]=useState(schedule.wednesday)
@@ -38,7 +38,7 @@ function Schedule() {
       {user ? (
       <div className={`items-center justify-center ${value ===''? 'h-screen': ''}`}>
         <div className='mt-24 text-white'>
-          <h1 className='justify-center pt-5'>Workout Routine</h1>
+          <h1 className='justify-center pt-5'>Beginner Workout Rountine</h1>
         </div>
         <div className='justify-center flex mt-4'>
           <SelectDate value={value} handleChange = {(e)=> {
@@ -73,7 +73,7 @@ function Schedule() {
           {value !== ''?        
           <>
             {exercises.map((item,id)=>(
-              <Cards 
+              <DefaultCards 
               name={item.name} 
               description={item.description} 
               difficulty={item.difficulty} 
@@ -105,4 +105,4 @@ function Schedule() {
   )
 }
 
-export default Schedule
+export default BeginnerWorkout
