@@ -7,7 +7,6 @@ import { AiOutlineClose } from 'react-icons/ai';
 import ProfileMenu from './ProfileMenu';
 
 
-
 const NavBarItems = ({title, classProps}) =>{
   return(
       <li className={`text-white mx-3 cursor-pointer ${classProps} hover:text-blue drop-shadow-lg`}>
@@ -16,14 +15,14 @@ const NavBarItems = ({title, classProps}) =>{
   )
 }
 
-function Nav() {
+function Nav({open, setOpen}) {
   const refreshPage = ()=>{
     window.location.reload();
  }
   const location = useLocation();
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
-  const [open,setOpen] = useState(false)
+  //const [open,setOpen] = useState(false)
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const handleLogout=()=>{
     localStorage.clear();

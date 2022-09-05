@@ -8,19 +8,26 @@ import Nutritions from "./pages/Nutritions";
 import Footer from "./components/Footer/Footer";
 import  Register from "./pages/Register";
 import  Login from "./pages/Login";
-import React, {useState} from 'react'
+import React, {useState,} from 'react'
 import ScrollToTop from "./Hook/ScrollToTop";
 import BackToTop from "./components/BackToTop";
 import Profile from './pages/Profile'
 import Schedule from './pages/Schedule'
 import BeginnerWorkout from './pages/BeginnerWorkout'
 function App() {
+
+  const [open,setOpen] = useState(false)
+
   return (
-    <div className='min-h-screen bg-gray-800'>
+    <div className='min-h-screen bg-gray-800' onClick={()=>{
+      if (open) {
+        setOpen(false)
+      }
+    }} >
       <div>
         <Router>
           <ScrollToTop>
-          <Nav />
+          <Nav open={open} setOpen={setOpen} />
           <Routes>             
             <Route exact path='/' element= {<Home />} />
             <Route exact path='/Home' element= {<Home />} />

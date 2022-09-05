@@ -3,27 +3,27 @@
         "id" : 1,
         "name": "Le Trung Tin",
         "src": "tin",
-        "description": "hello"
+        "description": "As a Project Manager and a Product Owner, Tin is responsible for analyzing requirements, designing the system architechure. Moreover, handling all of the crucial front-end task."
 
     },
     {
         "id" : 2,
         "name": "Hoang Ngoc Anh Duc",
         "src": "duc",
-        "description": "hello"
+        "description": "Duc serves as the project's scrum master, front-end developer, and model. He is in charge of the UX/UI design, ensuring that everyone completes their tasks on time, and the recored data of the website."
 
     },
     {
         "id" : 3,
         "name": "Ngo Nhat Minh",
         "src": "minh",
-        "description": "hello"
+        "description": "Minh is a member of the back-end team and the database manager, assisting in authentication, back-end deployment, and exercise recording."
     },
     {
         "id" : 4,
         "name": "Nguyen Huu Phan Duy Vu",
         "src": "vu",
-        "description": "hello"
+        "description": "Vu is the part of the back-end, taken the responsibility for the most of of the back-end ranging from functionality to error tracking."
     }
 
 ]

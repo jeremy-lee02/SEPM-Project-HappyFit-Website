@@ -14,7 +14,7 @@ function AboutUs() {
     slidesToScroll: 2,
     initialSlide: 0,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 10000,
     cssEase: "linear",
     responsive: [
       {
@@ -47,8 +47,8 @@ function AboutUs() {
           <img  src={require('../../images/'+ item.src + '.png')} alt={item.name} className= "rounded-full pt-3" />   
           </div>
           <div className="card-bottom"> 
-            <h1 className='bold justify-center font-big'>{item.name}</h1>
-            <h3 className='pt-2'>{item.description}</h3>
+            <h1 className='bold justify-center font-big underline'>{item.name}</h1>
+            <h3 className='pt-2 text-center'>{item.description}</h3>
           </div>
         </div>
         ))}
