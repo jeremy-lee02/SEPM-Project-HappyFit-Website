@@ -5,7 +5,12 @@ import Header from '../components/Header/Header'
 function Home() {
   let navigate = useNavigate();
   const changeRoute = () => {
-    let path = `/Login`; 
+    let path ;
+    if (JSON.parse(localStorage.getItem('profile')))  {
+      path = '/Exercises'
+    }else {
+      path = '/Login'
+    }
     navigate(path);
   }
   return (

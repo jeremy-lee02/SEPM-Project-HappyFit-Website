@@ -30,13 +30,14 @@ function BeginnerWorkout() {
     const [modalData, setModalData] = useState([])
     const [deleteData, setDeleteData] = useState([])
     const [date , setDate] = useState('')
+    const [screen, setScreen] = useState('')
     useDelete(deleteData, date)
-        
+
   return (
     
     <div className='bg-gray-800'>
       {user ? (
-      <div className={`items-center justify-center ${value ===''? 'h-screen': ''}`}>
+      <div className={`items-center justify-center`}>
         <div className='mt-24 text-white'>
           <h1 className='justify-center pt-5'>Beginner Workout Rountine</h1>
         </div>
@@ -69,7 +70,7 @@ function BeginnerWorkout() {
             }
             }}/>
         </div>
-        <div className={`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-16 gap-10 text-white mt-8`}>
+        <div className={`grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-16 gap-10 text-white mt-8 ${exercises.length === 0 ? 'h-screen': ''}`}>
           {value !== ''?        
           <>
             {exercises.map((item,id)=>(
@@ -94,7 +95,7 @@ function BeginnerWorkout() {
               }}/>
               
             ))}
-          </> : null}
+          </> : <div className='h-screen'/>}
           <Modal showModal={showModal} setShowModal = {setShowModal} img = {modalData.videoURL === ''? require('../images/giphy.gif'): modalData.videoURL} title = {modalData.name} tech = {modalData.tip} title1={'Exercise Techniques:'} />
         </div>
       </div>
